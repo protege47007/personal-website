@@ -1,0 +1,27 @@
+<%- include('./partials/header') -%>
+<%- include('./partials/nav') -%>
+
+<article>
+    <section>
+        <ul>
+            <li>linkedin</li>
+            <li>Facebook</li>
+            <li>Twitter</li>
+            <li>GMail</li>
+            <li>Yahoo Mail</li>
+        </ul>
+    </section>
+    <section>
+        <form action="" method="post">
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="Name" aria-placeholder="name" required>
+            <label for="mail-subject">Subject</label>
+            <input type="text" name="mail-subject" placeholder="Subject" aria-placeholder="subject" required>
+            <label for="mail-body">Message</label>
+            <textarea name="message" name="mail-body" placeholder="Write your message.." aria-placeholder="compose message" required autofocus></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+</article>
+
+<%- include('./partials/footer') -%>

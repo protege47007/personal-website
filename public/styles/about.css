@@ -1,0 +1,57 @@
+.about-me > h1{
+    font-size: 1.3rem;
+    padding: 1.5%;
+    border-bottom: 1px dotted #737373;
+}
+
+.container{
+    display: flex;
+}
+.abt-section > h3{
+    font-size: 1.2rem;
+    padding: 5% ;
+    border-bottom: 1px dotted #737373;
+    
+}
+.abt-section{
+    width: 35%;
+    height: 20rem;
+}
+.abt-section .items{
+    display: block;
+    padding: 5%;
+}
+.items{
+    border-bottom: 1px dotted #737373;
+}
+.label, .attr, .skill-label{
+    display: inline-block;
+    font-size: 1.1rem;
+}
+.label, .skill-label{
+    font-weight: bold;
+}
+.attr{
+    padding-left: 1%;
+    font-size: .9rem;
+    opacity: 0.5;
+}
+.mem{
+    width: 65%;
+    border-left: 1px dotted #737373;
+}
+.mem > h3{
+    font-size: 1.2rem;
+    padding: 2.65% 5%;
+}
+.bio{
+    border-top: 1px dotted #737373;
+}
+.bio{
+    padding: 5% 2%;
+    text-align: center;
+    text-justify: inter-word;
+    font-size: 1.1rem;
+    word-spacing: 1.1rem;
+    
+}

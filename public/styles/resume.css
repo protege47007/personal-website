@@ -1,0 +1,125 @@
+
+.x{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.pro-skill{
+    flex-basis: 30%;
+    height: 10rem;
+    justify-content: left;
+}
+.skill{
+    padding: 3% 0.5%;
+    word-spacing: 1%;
+    line-height: 1.5rem;
+    border-bottom: 1px dotted #737373;
+}
+.pro-skill > h3{
+    padding: 2% 0 ;
+    border-bottom: 1px dotted #737373;
+
+}
+.xp > h3{
+    border-bottom: 1px dotted #737373;
+    border-left: 1px dotted #737373;
+    padding: .5% 1% 1.5%;
+}
+.xp{
+    flex-basis: 70%;
+    height: auto;
+    justify-content: right;
+}
+.work-id{
+    padding: 2% 0.5%;
+    word-spacing: 1%;
+    line-height: 1.5rem;
+    border-left: 1px dotted #737373;
+    border-bottom: 1px dotted #737373;
+}
+.work-id > h4{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.work-id > .resume-date, .resume-data{
+    font-size: .8rem;
+    opacity: .6;
+}
+.j{
+    display: flex;
+    flex-direction: column;
+}
+.resume-item{
+    flex-basis: 100%;
+    padding: 3% 0;
+    height: auto;
+}
+.resume-item > h3{
+    padding: 2% 1% 1%;
+    border-bottom: 1px dotted #737373;
+    border-left: 1px dotted #737373;
+    display: block;
+}
+.edu-item{
+    border-left: 1px dotted #737373;
+    border-bottom: 1px dotted #737373;
+    padding: 1%;
+}
+.list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-basis: calc(100%/5);
+}
+.interests-child {
+    font-size: .7rem;
+    padding: 2%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.interests-child > svg {
+    width: 70%;
+    height: 70%;
+}
+.interests-child > img{
+    width: 60%;
+    height: 70%;
+}
+.interests-child > span{
+    text-align: justify;
+}
+.resume-tag, .pub-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.resume-date, .resume-tag > span, .pub-title > span, .pub > span{
+    font-size: .9rem;
+    opacity: .8;
+}
+.pub{
+    padding: 1%;
+}
+/*download button styles*/
+#btn{
+    align-self: flex-end;
+    width: 9rem;
+    padding: 1%;
+    border: 1.5px solid #737373;
+    background-color: #000;
+    color: #737373;
+    font-size: 1.05rem;
+}
+#btn:focus{
+    outline: none;
+}
+#btn:focus, #btn:hover{
+    background-color: #737373;
+    color: #000;
+    cursor: pointer;
+}

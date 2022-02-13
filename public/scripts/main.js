@@ -21,3 +21,14 @@ var typing = document.querySelector('.typing');
     }
     setTimeout(type, 400);
 }());
+
+
+// active nav styling
+window.onload = (event) =>{
+  // const path = /\w+/.exec(location.pathname);
+  document.querySelectorAll(".link").forEach((n, i) => {
+    if(location.pathname === n.getAttribute('href')){
+      n.classList.add('selected');
+    }
+  })
+}

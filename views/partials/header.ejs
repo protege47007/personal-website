@@ -6,27 +6,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Adewumi David</title>
+    <!-- stylesheets -->
+    <script src="https://kit.fontawesome.com/3e9f61bf13.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/styles/main.css">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/styles/main.css">-->
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/nav.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/styles/about.css">
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="/styles/about.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/portfolio.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/header.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/resume.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/styles/contact.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/styles/contact.css"> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/styles/stylesheets/style.css">
+
+    <!-- scripts -->
+    <script src="/scripts/main.js" defer></script>
 </head>
 <body>
-    <div class="build">
-            <header>
-                <div class="icon"></div>
-                <div class="header-txt">
-                    <h1 class="nom typing">I'm David</h1>
-                    <h5 class="subtxt">Web Developer</h5>
+    <div class="build container bg-black text-white w-screen p-4">
+            <header class="grid grid-cols-2 gap-0">
+                <div class="icon py-2 "><img src="/images/blackbg-me.png" alt="" class="w-28 m-auto rounded-full"></div>
+                <div class="header-link flex flex-col justify-center items-center  border-l border-white border-dotted">
+                    <a href="#" id="fb" class="contact-link py-2 "><i class="fab fa-facebook-f text-white fa-lg"></i></a>
+                    <a href="https://github.com/protege47007" id="git" class="contact-link py-2 "><i class="fab fa-github text-white fa-lg"></i></a>
+                    <a href="https://www.linkedin.com/in/david-adewumi-42a9ab112/" id="linkedin" class=" contact-link py-2 "><i class="fab fa-linkedin-in text-white fa-lg"></i></a>
+                    <a href="/contact" id="mail" class=" contact-link py-2 "><i class="fas fa-envelope text-white fa-lg"></i></a>
                 </div>
-                <hr />
-                <div class="header-link">
-                    <a href="#" id="fb" class="contact-link">fb</a>
-                    <a href="#" id="linkedin" class="contact-link">Li</a>
-                    <a href="mailto: Davidak.a@yahoo.com?subect = You're Amazing ;)" id="mail" class="contact-link">mail</a>
+                
+                <hr class="col-span-2 border-t-0 border-r-0 border-l-0 border-b border-white border-dotted"/>
+                <div class="header-txt col-span-2 border-t-0 border-r-0 border-l-0 border-b border-white border-dotted">
+                    <h1 class="nom typing text-center text-3xl py-2">I'm David</h1>
+                    <h5 class="subtxt text-center text-sm opacity-75 py-1">Web Developer</h5>
                 </div>
             </header>

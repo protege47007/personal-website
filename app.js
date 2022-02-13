@@ -14,9 +14,6 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.render('about', {});
 });
-app.get('/about', (req, res) => {
-    res.redirect('/');
-});
 
 //resume route
 app.get('/resume', (req, res)=> {

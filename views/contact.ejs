@@ -2,24 +2,18 @@
 <%- include('./partials/nav') -%>
 
 <article>
+    
     <section>
-        <ul>
-            <li>linkedin</li>
-            <li>Facebook</li>
-            <li>Twitter</li>
-            <li>GMail</li>
-            <li>Yahoo Mail</li>
-        </ul>
-    </section>
-    <section>
-        <form action="" method="post">
-            <label for="name">Name</label>
-            <input type="text" name="name" placeholder="Name" aria-placeholder="name" required>
-            <label for="mail-subject">Subject</label>
-            <input type="text" name="mail-subject" placeholder="Subject" aria-placeholder="subject" required>
-            <label for="mail-body">Message</label>
-            <textarea name="message" name="mail-body" placeholder="Write your message.." aria-placeholder="compose message" required autofocus></textarea>
-            <button type="submit">Send</button>
+        <form action="/contact" method="post" class="p-6 my-3 border border-dotted border-white">
+            <label for="name" class=" block text-lg font-bold">Name</label>
+            <input type="text" class="w-11/12 p-2 text-lg text-black outline-0" name="name" placeholder="Name" aria-placeholder="name" id="name" minlength="7" required>
+
+            <label for="subject" class="mt-2 block text-lg font-bold">Subject</label>
+            <input type="text" class="w-11/12 p-2 text-lg text-black outline-0" name="subject" placeholder="Subject" id="subject"  aria-placeholder="subject" required>
+            
+            <label for="body" class="mt-2 block text-lg font-bold">Message</label>
+            <textarea name="message" id="body" placeholder="Write your message.." class="text-black text-lg w-11/12 p-2 outline-0 h-52" aria-placeholder="compose message" required autofocus></textarea>
+            <button type="submit"  class="mt-2 border border-dotted py-1 px-2">Send</button>
         </form>
     </section>
 </article>

@@ -1,7 +1,13 @@
+:root{
+    --primary: #fff;
+    --sec: #000;
+    --other: rgba(255, 255, 255, 0.685)
+}
+
 .about-me > h1{
     font-size: 1.3rem;
     padding: 1.5%;
-    border-bottom: 1px dotted #737373;
+    border-bottom: 1px dotted var(--primary);
 }
 
 .container{
@@ -10,7 +16,7 @@
 .abt-section > h3{
     font-size: 1.2rem;
     padding: 5% ;
-    border-bottom: 1px dotted #737373;
+    border-bottom: 1px dotted var(--primary);
     
 }
 .abt-section{
@@ -22,7 +28,7 @@
     padding: 5%;
 }
 .items{
-    border-bottom: 1px dotted #737373;
+    border-bottom: 1px dotted var(--primary);
 }
 .label, .attr, .skill-label{
     display: inline-block;
@@ -33,19 +39,20 @@
 }
 .attr{
     padding-left: 1%;
-    font-size: .9rem;
-    opacity: 0.5;
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.8;
 }
 .mem{
     width: 65%;
-    border-left: 1px dotted #737373;
+    border-left: 1px dotted var(--primary);
 }
 .mem > h3{
     font-size: 1.2rem;
     padding: 2.65% 5%;
 }
 .bio{
-    border-top: 1px dotted #737373;
+    border-top: 1px dotted var(--primary);
 }
 .bio{
     padding: 5% 2%;
@@ -55,3 +62,22 @@
     word-spacing: 1.1rem;
     
 }
+
+@media screen and (min-width:320px) and (max-width:425px){
+
+}
+
+/*extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

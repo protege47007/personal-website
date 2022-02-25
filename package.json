@@ -4,7 +4,10 @@
   "description": "personal portfolio",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+     "build:css": "postcss public/styles/stylesheets/tailwind.css -o public/styles/stylesheets/style.css --watch",
+     "watch:css": "postcss public/styles/stylesheets/tailwind.css -o public/styles/stylesheets/style.css",
+     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David",
   "license": "ISC",
@@ -13,5 +16,8 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.18"
   }
 }

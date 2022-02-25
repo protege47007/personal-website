@@ -1,3 +1,8 @@
+:root{
+    --primary: #fff;
+    --sec: #000;
+    --other: rgba(255, 255, 255, 0.685)
+}
 
 .x{
     display: flex;
@@ -14,16 +19,16 @@
     padding: 3% 0.5%;
     word-spacing: 1%;
     line-height: 1.5rem;
-    border-bottom: 1px dotted #737373;
+    border-bottom: 1px dotted var(--primary);
 }
 .pro-skill > h3{
     padding: 2% 0 ;
-    border-bottom: 1px dotted #737373;
+    border-bottom: 1px dotted var(--primary);
 
 }
 .xp > h3{
-    border-bottom: 1px dotted #737373;
-    border-left: 1px dotted #737373;
+    border-bottom: 1px dotted var(--primary);
+    border-left: 1px dotted var(--primary);
     padding: .5% 1% 1.5%;
 }
 .xp{
@@ -35,8 +40,8 @@
     padding: 2% 0.5%;
     word-spacing: 1%;
     line-height: 1.5rem;
-    border-left: 1px dotted #737373;
-    border-bottom: 1px dotted #737373;
+    border-left: 1px dotted var(--primary);
+    border-bottom: 1px dotted var(--primary);
 }
 .work-id > h4{
     font-size: 1.1rem;
@@ -57,13 +62,13 @@
 }
 .resume-item > h3{
     padding: 2% 1% 1%;
-    border-bottom: 1px dotted #737373;
-    border-left: 1px dotted #737373;
+    border-bottom: 1px dotted var(--primary);
+    border-left: 1px dotted var(--primary);
     display: block;
 }
 .edu-item{
-    border-left: 1px dotted #737373;
-    border-bottom: 1px dotted #737373;
+    border-left: 1px dotted var(--primary);
+    border-bottom: 1px dotted var(--primary);
     padding: 1%;
 }
 .list{
@@ -110,16 +115,16 @@
     align-self: flex-end;
     width: 9rem;
     padding: 1%;
-    border: 1.5px solid #737373;
-    background-color: #000;
-    color: #737373;
+    border: 1.5px solid var(--primary);
+    background-color: var(--sec);
+    color: var(--primary);
     font-size: 1.05rem;
 }
 #btn:focus{
     outline: none;
 }
 #btn:focus, #btn:hover{
-    background-color: #737373;
-    color: #000;
+    background-color: var(--primary);
+    color: var(--sec);
     cursor: pointer;
 }

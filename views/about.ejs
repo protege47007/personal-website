@@ -2,33 +2,40 @@
 <%- include('./partials/nav') -%> 
 
 <article id="about" class="about-me">
-    <div class="container">
-        <section class="abt-section">
-            <h3>About Info</h3>
-            <div class="about-content">
-                <span class="items">
-                    <p class="label">Full Name:</p>
-                    <p class="attr">Adewumi David</p>
+    <div class="lg:flex lg:flex-row">
+        <section class="abt-section lg:basis-2/5 ">
+            <h3 class="text-3xl py-2 border border-dotted border-l-0 border-t-0 border-r-0 ">About Info</h3>
+            <div class="about-content grid grid-cols-1 grid-rows-4 py-2 md:w-10/12 mt-1 lg:border lg:border-dotted lg:border-l-0 lg:border-t-0 ">
+                <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-0 ">
+                    <p class="label text-xl">Full Name:</p>
+                    <p class="attr text-base tracking-wide opacity-75">Adewumi David</p>
                 </span>
-                <span class="items">
-                    <p class="label">Birthday:</p>
-                    <p class="attr">05 November 1996</p>
+                <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-r-0 lg:border-b ">
+                    <p class="label text-xl">Birthday:</p>
+                    <p class="attr text-base tracking-wide opacity-75">November 1996</p>
                 </span>
-                <span class="items">
-                    <p class="label">Address:</p>
-                    <p class="attr">Ogun State, Nigeria.</p>
+                <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-r-0 lg:border-b">
+                    <p class="label text-xl">Address:</p>
+                    <p class="attr text-base tracking-wide opacity-75">Ogun State, Nigeria.</p>
                 </span>
-                <span class="items">
-                    <p class="label">Day Job:</p>
-                    <p class="attr">Freelance Web Developer</p>
+                <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b md:border-r lg:border-r-0 lg:border-b-0">
+                    <p class="label text-xl">Day Job:</p>
+                    <p class="attr text-base tracking-wide opacity-75">Software Engineer</p>
                 </span>
             </div>
         </section>
-        <section class="mem">
-            <h3>Memoir</h3>
-            <div class="bio">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos quasi pariatur unde non. Aspernatur atque molestiae enim fugit dolores laborum quaerat reprehenderit nihil facere hic. Repudiandae placeat fugiat aut ut aspernatur animi modi laboriosam cupiditate quaerat facere facilis alias illum ex fugit earum consequatur, maiores maxime, rem fuga, ipsum corporis?</p>
+        <section class="mem lg:basis-3/5">
+            <h3 class="text-3xl py-2 border border-dotted border-l-0 border-t-0 border-r-0 ">Bio</h3>
+            <div class="bio mb-6">
+                <p class="md:w-10/12 py-2">
+                    Hi there&#128075;, I'm David, welcome to my website. I'm a web developer&#129299;, 
+                    a fan of Manchester United
+                    <i class="fa fa-heart" style="font-size:24px;color:red"></i> (even in this trying times &#129319;), 
+                    and love video games. 
+                </p>
             </div>
+
+            <a href="/resume" ><h4 class="p-2  border-dotted border-2 rounded-sm w-56 hover:bg-white hover:text-black lg:hidden">check out my resume<i class="fa fa-solid fa-arrow-right text-white px-2 hover:text-black"></i></h4></a>
         </section>
     </div>
 </article>

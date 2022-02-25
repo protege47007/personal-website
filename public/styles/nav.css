@@ -1,8 +1,14 @@
+:root{
+    --primary: #fff;
+    --sec: #000;
+    --other: rgba(255, 255, 255, 0.685)
+}
+/*
 nav{
     height: 7rem;
     width: 97%;
     margin: auto;
-    border-bottom: 1px dotted #737373;
+    border-bottom: 1px dotted var(--primary);
 }
 nav > ul{
     margin: 0px;
@@ -21,7 +27,7 @@ nav > ul > li{
 }
 .link{
     text-decoration: none;
-    color: #737373;
+    color: var(--primary);
     width: 100%;
     height: 100%;
     padding: 2%;
@@ -38,25 +44,33 @@ nav > ul > li{
     height: auto;
     margin: 10% auto 0;
     padding: 2% 0;
-}
+} */
 .link-img > svg path{
-    fill: #737373;
+    fill: var(--primary);
 }
-
+/* 
 .link-txt{
     position: relative;
     bottom: 15%;
     margin-top: 5%;
 }
 .link-div{
-    border-left: 1px dotted rgba(255, 255, 255, 0.685);
-}
+    border-left: 1px dotted var(--primary);
+} */
 .selected svg path{
-    fill: #000;
+    fill: var(--sec);
 }
 .selected{
-    color: #000;
-    background-color: #737373;
-    opacity: .65;
-    font-weight: bold;
+    color: var(--sec);
+    background-color: var(--primary);
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 2px var(--primary);
+    background-color: var(--sec);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--primary);
 }

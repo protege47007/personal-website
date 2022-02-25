@@ -38,6 +38,6 @@ app.get('/blog', (req, res) =>{
 
 
 //Server Initialisation
-app.listen('4030', () => {
+app.listen(process.env.PORT || '4030', () => {
     console.log("Server is Live and Running...");
 });

@@ -11,7 +11,6 @@ $('#form').addEventListener('submit', (e)=>{
         subject: $('#subject').value,
         message: $('#body').value,
     }
-    
 
     fetch('/contact', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -24,10 +23,22 @@ $('#form').addEventListener('submit', (e)=>{
         .then(data => {
 
             if (data.status === '200') {
-                alert('successful')
+                $('.success').classList.remove('hidden');
+                $('#success').textContent = data.message;
+                setTimeout(() => {
+                    $('.success').classList.add('hidden');
+                    $('#success').textContent = '';
+                }, 3000);
+              
             } else {
-                alert('failed');
+              $('.fail').classList.remove('hidden');
+              $('#fail').textContent = data.message;
+              setTimeout(() => {
+                  $('.fail').classList.add('hidden');
+                  $('#fail').textContent = '';
+              }, 3000);
             }
             console.log(data)
         });
 })
+

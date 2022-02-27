@@ -44,19 +44,22 @@ app.post('/contact', (req, res) => {
   "Messages":[
     {
       "From": {
-        "Email": "davidak.a@yahoo.com",
+        "Email": "akdadewumi@gmail.com",
         "Name": "David"
       },
       "To": [
         {
-          "Email": "davidak.a@yahoo.com",
-          "Name": "David"
+          "Email": "akdadewumi@gmail.com",
+          "Name": ""
         }
       ],
-      "Subject": "Greetings from Mailjet.",
-      "TextPart": `"My first Mailjet email" ${name}, ${mail}, ${subject}, ${message}`,
-      "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
-      "CustomID": "AppGettingStartedTest"
+      "Subject": `${subject}`,
+      "TextPart": `Name: ${name}, mail: ${mail}, Message:  ${message}`,
+      "HTMLPart": "<h3>Good Day Boss,</h3><br />"+
+      `<p> Mr/Miss/Mrs ${name}, left you a message that says,</p> <br/>`+
+      `<p style:"font-weight: 700;">${message}</p><br/>`+
+      `<p>You can reach them at: <a href="mailto:${mail}">${mail}</a></p>`,
+      "CustomID": "messageFromWebApp"
     }
   ]
 })
@@ -82,7 +85,6 @@ app.get('/blog', (req, res) =>{
 app.use((req, res) => {
     //error page render
 })
-
 
 
 

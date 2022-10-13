@@ -13,6 +13,7 @@ module.exports = ({aboutService, portfolioService}) => {
     router.get("/", async (req, res, next) => {
         try {
             const aboutInfo = await aboutService.getAboutInfo()
+            
             res.render('about', { aboutInfo }) 
         } catch (error) {
             return next(error)

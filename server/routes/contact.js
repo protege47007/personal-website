@@ -11,14 +11,14 @@ const validationConstraints = require("../middlewares/validation-constraints")
 module.exports = () => {
     // GET
     router.get("/", (req, res) => {
-        const errors = req.session.contact? req.session.contact.errors : false
-        const successMsg = req.session.contact? req.session.contact.message : false
-        req.session.contact = {}
+        // const errors = req.session.contact? req.session.contact.errors : false
+        // const successMsg = req.session.contact? req.session.contact.message : false
+        // req.session.contact = {}
 
         
         res.render('contact', {
-            errors,
-            successMsg
+            // errors,
+            // successMsg
         })
     })
 

@@ -37,26 +37,8 @@ module.exports = (config) => {
 
   app.use("/", routes({aboutService, portfolioService}))
 
-  // //home route
-  // app.get('/', (req, res) => {
-  //     res.render('about', {})
-  // })
-
-  // //resume route
-  // app.get('/resume', (req, res)=> {
-  //     res.render('resume')
-  // })
-
-  // //portfolio route
-  // app.get('/portfolio', (req, res) => {
-  //     res.render('portfolio')
-  // })
-
-
-  // //contact route
-  // app.get('/contact', (req, res) =>{
-  //     res.render('contact')
-  // })
+  
+  
 
   // app.post('/contact', (req, res) => {
   //     const {name, mail, subject, message} = req.body

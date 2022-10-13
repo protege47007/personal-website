@@ -2,13 +2,108 @@
     "about": {
         "full_name": "Adewumi David",
         "dob": "November '96",
-        "address": "Ogun State, Nigeria",
+        "address": "Nigeria",
         "job": "Software Engineer",
         "bio": "Hi there👋, I'm David, welcome to my website. I'm a web developer🤓, a fan of Manchester United❤️ (even in this trying times 🤧), and love video games."
     },
     "resume": {
-        "skills": [],
+        "skills": [
+            {
+                "imageUrl": "/images/html.png",
+                "title": "HTML",
+                "imageAlt": "html logo"
+            },
+            {
+                "imageUrl": "/images/css-3.png",
+                "title": "CSS",
+                "imageAlt": "CSS logo"
+            },
+            {
+                "imageUrl": "/images/js.png",
+                "title": "JavaScript",
+                "imageAlt": "javascript logo"
+            },
+            {
+                "imageUrl": "/images/nodejs.png",
+                "title": "Node.js",
+                "imageAlt": "nodejs logo"
+            },
+            {
+                "imageUrl": "/images/tailwind.png",
+                "title": "Tailwind CSS",
+                "imageAlt": "Tailwind CSS logo"
+            },
+            {
+                "imageUrl": "/images/github.png",
+                "title": "GitHub",
+                "imageAlt": "github's logo"
+            },
+            {
+                "imageUrl": "/images/git.png",
+                "title": "Git Version Control",
+                "imageAlt": "Git version control logo"
+            },
+            {
+                "imageUrl": "/images/mongodb.png",
+                "title": "MongoDB",
+                "imageAlt": "mongoDb logo"
+            },
+            {
+                "imageUrl": "/images/postman.png",
+                "title": "Postman",
+                "imageAlt": "Postman's logo"
+            },
+            {
+                "imageUrl": "/images/postgres.jpg",
+                "title": "Postgres",
+                "imageAlt": "postgres logo"
+            },
+            {
+                "imageUrl": "/images/brands.png",
+                "title": "Vue.js",
+                "imageAlt": "Vuejs logo"
+            },
+            {
+                "imageUrl": "/images/react.png",
+                "title": "React.js",
+                "imageAlt": "reactjs logo"
+            },
+            {
+                "imageUrl": "/images/socket.png",
+                "title": "Socket.io",
+                "imageAlt": "socket.io logo"
+            },
+            {
+                "imageUrl": "/images/figma.png",
+                "title": "Figma",
+                "imageAlt": "figma's logo"
+            },
+            {
+                "imageUrl": "/images/sass.png",
+                "title": "Scss/Sass",
+                "imageAlt": "Sass logo"
+            },
+            {
+                "imageUrl": "/images/bootstrap-icons.png",
+                "title": "Bootstrap",
+                "imageAlt": "bootstrap's logo"
+            }
+        ],
         "workExp": [
+            {
+                "position": "Software Engineer & Data Entry Operator",
+                "company": "@Mackintel limited",
+                "date": "May 2022 - ",
+                "responsibilities": [
+                    "Organized and improved the company's record keeping accuracy by up to 80%",
+                    "Created a secure central online storage for the company's data for easy accessibility",
+                    "Digitized records and provided capabilities of productivity daily, weekly, monthly, and annually",
+                    "Assessing the company's system of operation to know how to incorporate software technologies for the company's daily activity and logistics",
+                    "Built the company's website using Next.js, and Tailwind CSS-preprocessor",
+                    "MongoDB was used for the database",
+                    "session were made to be encrypted to improve security"
+                ]
+            },
             {
                 "position": "Backend Engineer",
                 "company": "@Easy Care Nigeria [Remote]",
@@ -18,7 +113,7 @@
                     "I also used express.js and EJS template engine",
                     "MongoDB was used for the database and Cloudinary for image hosting",
                     "Passport.js' Local and Google strategy was used for authentication",
-                    "The use of encrypted session cookies was implemented"
+                    "session were made to be encrypted to improve security"
                 ]
             },
             {
@@ -26,9 +121,9 @@
                 "company": "@Syntax Imagination, Ota",
                 "date": "April 2021 - February 2022",
                 "responsibilities": [
-                    "Improved the overall experience of customer care platform",
+                    "Collaborated in with the building of the company's customer care dashboard using vue.js and Bootstrap",
                     "Tested APIs using postman",
-                    "Created some UI and PDF designs using Figma"
+                    "Created UIs and PDF designs using Figma"
                 ]
             },
             {
@@ -37,6 +132,40 @@
                 "date": "March 2020 - September 2020",
                 "responsibilities": [
                     "Learned about the development process of making a professional web application"
+                ]
+            }
+        ],
+        "projects": [
+            {
+                "name": "TicTacToe",
+                "description": "Online Web Multiplayer Game",
+                "responsibilities": [
+                    "I used HTML, CSS, and Vanilla Js for developing the UI",
+                    "I used Socket.io Client connection to establish a full-duple connection with the server once all the are ready",
+                    "I used Express with EJS template engine on the server side",
+                    "Used Socket.io event-listeners to listen for events from the client side "
+                ]
+            },
+            {
+                "name": "My Portfolio Website",
+                "description": "My personal website to curate all my skills and experience",
+                "responsibilities": [
+                    "Used Tailwind CSS and Vanilla Js for developing the UI",
+                    "Used EJS to create a template for the UI",
+                    "Used Express on the server side",
+                    "Implemented a content management UI",
+                    "Added a layer of security to protect the content management aspect",
+                    "Integrated Mailjet's API to send contact messages to my personal mail address"
+                ]
+            },
+            {
+                "name": "The Fortnight Journal",
+                "description": "My personal blog site",
+                "responsibilities": [
+                    "Used React.js and Tailwind Css to develop the UI",
+                    "Used Redux state management to handle the states and API calls",
+                    "JSON web-tokens were used to maintain secure sessions",
+                    "Cloudinary would be used to store the Images"
                 ]
             }
         ],
@@ -49,6 +178,64 @@
             "title": "Detecting Depression From Social Media Posts",
             "desc": "Published July, 2019. ICT Department, College of Natural and Applied Sciences. Bells University, Ota."
         },
-        "interests": []
+        "Certificates": [
+            {
+                "course": "Frontend Developer (React.js)",
+                "issued_by": "Side Hustle Internship",
+                "date": "December 2021"
+            },
+            {
+                "course": "Public Speaking",
+                "issued_by": "Side Hustle Internship",
+                "date": "December 2021"
+            },
+            {
+                "course": "Soft Skills Training",
+                "issued_by": "Jobberman Nigeria",
+                "date": "October 2021"
+            },
+            {
+                "course": "Project Management",
+                "issued_by": "Alpha Consulting Services",
+                "date": "October 2021"
+            },
+            {
+                "course": "Human Resource Management",
+                "issued_by": "Alpha Consulting Services",
+                "date": "June 2021"
+            },
+            {
+                "course": "Customer Relationship Management",
+                "issued_by": "Alpha Consulting Services",
+                "date": "June 2021"
+            }
+        ],
+        "interests": [
+            {
+                "imageUrl": "/images/music.png",
+                "title": "Listening to music",
+                "imageAlt": "a human figure with headphones on"
+            },
+            {
+                "imageUrl": "/images/watching-a-movie.png",
+                "title": "Watching TV",
+                "imageAlt": "an outline depiction of a TV screen with a red cup and a red paper-bag of popcorn set in front of the TV screen"
+            },
+            {
+                "imageUrl": "/images/tactics.png",
+                "title": "Anything Football",
+                "imageAlt": "an outline depiction of a football tactics, with the full pitch illustrated and players indicated with a circle"
+            },
+            {
+                "imageUrl": "/images/joystick.png",
+                "title": "Video Games",
+                "imageAlt": "a depiction of a playstation's game pad"
+            },
+            {
+                "imageUrl": "/images/open-book.png",
+                "title": "Reading",
+                "imageAlt": "a depiction of an open book with a light bulb on top of it but closer to the top edge"
+            }
+        ]
     }
 }

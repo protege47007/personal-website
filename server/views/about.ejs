@@ -8,19 +8,19 @@
             <div class="about-content grid grid-cols-1 grid-rows-4 py-2 md:w-10/12 mt-1 lg:border lg:border-dotted lg:border-l-0 lg:border-t-0 ">
                 <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-0 ">
                     <p class="label text-xl ">Full Name:</p>
-                    <p class="attr text-base tracking-wide opacity-75">Adewumi David</p>
+                    <p class="attr text-base tracking-wide opacity-75"><%- aboutInfo.full_name -%></p>
                 </span>
                 <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-r-0 lg:border-b ">
                     <p class="label text-xl">Birthday:</p>
-                    <p class="attr text-base tracking-wide opacity-75">November 1996</p>
+                    <p class="attr text-base tracking-wide opacity-75"><%- aboutInfo.dob -%></p>
                 </span>
                 <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-r-0 lg:border-b">
                     <p class="label text-xl">Location:</p>
-                    <p class="attr text-base tracking-wide opacity-75"> Nigeria</p>
+                    <p class="attr text-base tracking-wide opacity-75"> <%- aboutInfo.address -%></p>
                 </span>
                 <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b md:border-r lg:border-r-0 lg:border-b-0">
                     <p class="label text-xl">Day Job:</p>
-                    <p class="attr text-base tracking-wide opacity-75">Software Engineer</p>
+                    <p class="attr text-base tracking-wide opacity-75"><%- aboutInfo.job -%></p>
                 </span>
             </div>
         </section>
@@ -28,10 +28,7 @@
             <h3 class="text-3xl py-2 border border-dotted border-l-0 border-t-0 border-r-0 ">Bio</h3>
             <div class="bio mb-6">
                 <p class="md:w-10/12 py-2">
-                    Hi there&#128075;, I'm David, welcome to my website. I'm a web developer&#129299;, 
-                    a fan of Manchester United
-                    <i class="fa fa-heart" style="font-size:24px;color:red"></i> (even in this trying times &#129319;), 
-                    and love video games. 
+                    <%- aboutInfo.bio -%> 
                 </p>
             </div>
 

@@ -540,6 +540,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 8rem;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .w-56 {
   width: 14rem;
 }
@@ -574,6 +578,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-5\/12 {
   width: 41.666667%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .resize-none {
@@ -854,6 +862,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 1;
 }
 
+.hover\:opacity-80:hover {
+  opacity: 0.8;
+}
+
 @media (min-width: 768px) {
 
   .md\:left-40 {
@@ -875,6 +887,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:h-20 {
     height: 5rem;
+  }
+
+  .md\:min-h-min {
+    min-height: -webkit-min-content;
+    min-height: -moz-min-content;
+    min-height: min-content;
   }
 
   .md\:w-10\/12 {

@@ -87,6 +87,21 @@
                 "imageUrl": "/images/bootstrap-icons.png",
                 "title": "Bootstrap",
                 "imageAlt": "bootstrap's logo"
+            },
+            {
+                "imageUrl": "/images/nuxt.png",
+                "title": "Nuxt.js",
+                "imageAlt": "Nuxt.js logo"
+            },
+            {
+                "imageUrl": "/images/next.png",
+                "title": "Next.js",
+                "imageAlt": "Next.js logo"
+            },
+            {
+                "imageUrl": "/images/redux.png",
+                "title": "Redux",
+                "imageAlt": "Redux's logo"
             }
         ],
         "workExp": [

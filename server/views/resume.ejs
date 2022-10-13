@@ -1,105 +1,81 @@
 <%- include('./partials/header') -%>
 <%- include('./partials/nav') -%>
 
-<article class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-2 border-red-600 lg:px-1 xl:h-[28.5rem]">
+<article class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-0  lg:px-1 xl:h-[28.5rem]">
     <div class="x">
         <section class="pro-skill border border-dotted border-white mt-4 ">
             <h3 class=" text-3xl py-2 border border-dotted border-t-0 border-l-0 border-r-0 border-white">My Skills</h3>
-            <ul class="grid grid-cols-3 grid-rows-6 my-2 md:grid-cols-4 md:grid-rows-4">
-                <li class="flex flex-col justify-center my-2"><img src="/images/html.png" alt="HTML" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">HTML</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/css-3.png" alt="CSS3" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">CSS</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/js.png" alt="JavaScript" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">JavaScript</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/nodejs.png" alt="Node.js" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Node.js</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/tailwind.png" alt="tailwind" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Tailwind</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/github.png" alt="Github" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">GitHub</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/git.png" alt="Git" class=" w-14 h-14 mx-auto bg-white rounded-lg"><span class="text-sm text-center font-bold text-white">Git</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/mongodb.png" alt="MongoDb" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">MongoDb</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/postman.png" alt="postman" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Postman</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/postgres.jpg" alt="Postgres" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Postgres</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/brands.png" alt="Vue.js" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Vue.js</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/react.png" alt="React.js" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">React.js</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/socket.png" alt="socket.io" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Socket.io</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/figma.png" alt="Figma" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Figma</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/sass.png" alt="Scss/Sass" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Sass</span></li>
-                <li class="flex flex-col justify-center my-2"><img src="/images/bootstrap-icons.png" alt="bootstrap" class=" w-14 h-14 mx-auto"><span class="text-sm text-center font-bold text-white">Bootstrap</span></li>
+            
+            <ul class="grid grid-cols-3 my-2 md:grid-cols-4">
+                <% resume.skills.forEach((skill) => { %>
+                    <li class="flex flex-col justify-center my-2 h-24">
+                        <img src="<%= skill.imageUrl %>"  alt="<%= skill.imageAlt %>" class=" w-14 h-14 mx-auto" />
+                        <span class="text-sm text-center font-bold text-white"><%= skill.title %></span>
+                    </li>
+                <% }) %>
             </ul>
         </section>
         <section class="xp border border-dotted border-white mt-4">
             <h3 class=" text-3xl py-2 border border-dotted border-t-0 border-l-0 border-r-0 border-white">Work Experiences</h3>
-            <div class="work-xp">
+            <div class="work-xp">                
+                <% resume.workExp.forEach(xp => { %>
                 <div class="work-id px-2 border border-dotted border-t-0 border-l-0 border-r-0 mt-2">
-                    <h4 class="resume-tag text-lg font-bold">Backend Engineer <span class="font-normal opacity-75">@EasyCare Nigeria [Remote]</span></h4>
-                    <span class="resume-date text-sm opacity-75">December 2021 - January 2022</span>
+                    <h4 class="resume-tag text-lg font-bold"><%= xp.position %><span class="font-normal opacity-75"><%= xp.company %></span></h4>
+                    <span class="resume-date text-sm opacity-75"><%= xp.date %></span>
                     <ul class="list-disc px-6 py-2">
-                        <li>I created it using the standard RESTful API endpoints</li>
-                        <li>I also used express.js and EJS templating engine</li>
-                        <li>MongoDB was used for the database and Cloudinary for image hosting</li>
-                        <li>Passport.js' Local and Google strategy was used for authentication</li>
-                        <li>The use of encrypted session cookies was implemented</li>
+                        <% xp.responsibilities.forEach(item => { %>
+                            <li><%= item %></li>
+                        <% }) %>
                     </ul>
                 </div>
-                <div class="work-id px-2 border border-dotted border-t-0 border-l-0 border-r-0 mt-2">
-                    <h4 class="resume-tag text-lg font-bold">Web Developer <span class="font-normal opacity-75">@Syntax Imagination, Ota</span></h4>
-                    <span class="resume-date text-sm opacity-75">April 2021 - February 2022</span>
-                    <ul class="list-disc px-6 py-2">
-                        <li>Improved the overall experience of customer care platform</li>
-                        <li>Tested APIs using postman</li>
-                        <li>Created some UI and PDF designs using Figma</li>
-                    </ul>
-                </div>
-                <div class="work-id px-2 border border-dotted border-t-0 border-l-0 border-r-0 mt-2">
-                    <h4 class="resume-tag text-lg font-bold">Intern Web Developer<span class="font-normal opacity-75">@Syntax Imagination, Ota</span></h4>
-                    <span class="resume-date text-sm opacity-75">March 2020 - September 2020</span>
-                    <ul class="list-disc px-6 py-2">
-                        <li>Learned about the development process of making a professional web
-                            application.
-                        </li>
-                    </ul>
-                </div>
+                <% }) %>
             </div>
         </section>
     </div>
+
     <div class="j">
         <section class="resume-item border border-dotted border-white mt-4">
             <h3 class=" text-3xl py-2 border border-dotted border-t-0 border-l-0 border-r-0 border-white">Education</h3>
             <div class="edu">
                 <div class="edu-item px-2">
-                    <p class="resume-tag text-lg font-bold">B. Tech Computer Sciecnce <span class="font-normal opacity-75">@Bells University of Technology, Ota</span></p>
-                    <span class="resume-date text-sm opacity-75">September 2014 - October 2020</span>
+                    <p class="resume-tag text-lg font-bold"><%= resume.edu.degree %><span class="font-normal opacity-75"><%= resume.edu.school %></span></p>
+                    <span class="resume-date text-sm opacity-75"><%= resume.edu.date %></span>
                 </div>  
             </div>
         </section>
+
         <section class="resume-item border border-dotted border-white mt-4">
             <h3 class=" text-3xl py-2 border border-dotted border-t-0 border-l-0 border-r-0 border-white">Thesis</h3>
             <div class="pub px-2">
-                <p class="pub-title text-lg font-bold">Detecting Depression From Social Media Posts</p>
-                <span class="opacity-75 text-base">Published July, 2019. ICT Department, College of Natural and Applied Sciences. Bells University, Ota.</span>
+                <p class="pub-title text-lg font-bold"><%= resume.Thesis.title %></p>
+                <span class="opacity-75 text-base"><%= resume.Thesis.desc %></span>
             </div>
         </section>
+
+        <section class="resume-item border border-dotted border-white mt-4">
+            <h3 class=" text-3xl py-2 border border-dotted border-t-0 border-l-0 border-r-0 border-white">Certifications</h3>
+            <div class="edu">
+                <% resume.Certificates.forEach( cert => { %>
+                    <div class="edu-item p-2">
+                        <p class="resume-tag text-lg font-bold"><%= cert.course %></p>
+                        <span class="text-lg font-normal opacity-75">issued by: <%= cert.issued_by %></span>
+                        <span class="resume-date block text-sm opacity-75"><%= cert.date %></span>
+                    </div>
+                <% }) %>
+                  
+            </div>
+        </section>
+
         <section class="resume-item border border-dotted border-white mt-4">
             <h3 class=" text-3xl py-2 border border-dotted border-t-0 border-l-0 border-r-0 border-white">Interests</h3>
             <div class="Interests">
                 <ul class="grid grid-cols-4 grid-rows-1 my-2 md:grid-cols-5">
-                    <li class="flex flex-col justify-center my-2" alt="Listening to music">
-                        <img src="/images/music.png" class="w-8 h-8 mx-auto" alt="Listening to music">
-                        <span class="text-xs text-center font-bold text-white">Listening to Music</span>
-                    </li>
-                    <li class="flex flex-col justify-center my-2" alt="Watching TV">
-                        <img src="/images/watching-a-movie.png" class="w-8 h-8 mx-auto" alt="watching tv">
-                        <span class="text-xs text-center font-bold text-white">Watching TV</span>
-                    </li>
-                    <li class="flex flex-col justify-center my-2">
-                        <img src="/images/tactics.png" class="w-8 h-8 mx-auto" alt="everything football">
-                        <span class="text-xs text-center font-bold text-white">Anything Football</span>
-                    </li>
-                    <li class="flex flex-col justify-center my-2" alt="videogame">
-                        <img src="/images/joystick.png" class="w-8 h-8 mx-auto" alt="Video games">
-                        <span class="text-xs text-center font-bold text-white">Video games</span>
-                    </li>
-                    <li class="flex flex-col justify-center my-2" alt="Likes reading">
-                        <img src="/images/open-book.png" class="w-8 h-8 mx-auto" alt="reading icon">
-                        <span class="text-xs text-center font-bold text-white">Reading</span>
-                    </li>
+                    <% resume.interests.forEach( item => { %>
+                        <li class="flex flex-col justify-center my-2" alt="Listening to music">
+                            <img src="<%= item.imageUrl %>" class="w-8 h-8 mx-auto" alt="<%= item.imageAlt %>">
+                            <span class="text-xs text-center font-bold text-white"><%= item.title %></span>
+                        </li>
+                    <% }) %>
                 </ul>
             </div>
         </section>

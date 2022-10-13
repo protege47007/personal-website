@@ -24,7 +24,7 @@ const AuthService = require("./services/auth")
 module.exports = (config) => {
   const app = express() 
   const aboutService = new AboutService(config.data.about)
-  const portfolioService = new PortfolioService(config.data.about)
+  const portfolioService = new PortfolioService(config.data.portfolio)
 
   
   // middlewares

@@ -4,8 +4,9 @@ const router = express.Router()
 module.exports = ({ aboutService }) => {
     router.get("/", async (req, res, next) => {
         try {
-            // const resume = await aboutService.getResume()
-            res.render('resume')
+            const resume = await aboutService.getResume()
+            console.log(resume.edu);
+            res.render('resume', {resume})
         } catch (error) {
             return next(error)
         }

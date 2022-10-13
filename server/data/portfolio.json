@@ -1,7 +1,47 @@
-[
-    {
-        "projectName": "",
-        "projectDesc": "",
-        "projectLogo": ""
-    }
-]
+{
+    "projects": [
+        {
+            "name": "Safe (Trust Broker)",
+            "desc": "Do business online with total assurance when you use Safe. Each transaction that takes place on our platform safeguards both buyers and sellers while also allowing for total transaparency.",
+            "imageUrl": "/images/safe.png",
+            "imageAlt": "the logo of trust broker",
+            "url": "https://www.trysafe.co/"
+        },
+        {
+            "name": "Mackintel Limited",
+            "desc": "Mackintel company is a company that deals with manufacturing, trucking logistics, paper cores, paper waste, production line, and manufacturing-process and production consultation",
+            "imageUrl": "/images/mack.png",
+            "imageAlt": "the logo of Mackintel limited",
+            "url": "https://macintel-website.vercel.app/"
+        },
+        {
+            "name": "Easy Care Nig.",
+            "desc": "Connect to the best caregivers through us. We've provided a way for you to reach proficient carers easier and faster without stress",
+            "imageUrl": "/images/easycare.jpg",
+            "imageAlt": "the logo of easy care nigeria",
+            "url": ""
+        },
+        {
+            "name": "TicTacToe",
+            "desc": "An Online Multiplayer Game",
+            "imageUrl": "/images/tac.png",
+            "imageAlt": "a tic-tac-toe board",
+            "url": ""
+        },
+        {
+            "name": "Fortnight Journal",
+            "desc": "My personal blog site.",
+            "imageUrl": "/images/FJ.png",
+            "imageAlt": "fortnight journal's logo",
+            "url": ""
+        },
+        {
+            "name": "Fortnight Recipe",
+            "desc": "An that brings you the best recipes from across the globe",
+            "imageUrl": "/images/FR.jpg",
+            "imageAlt": "fortnight recipe's logo",
+            "url": ""
+        }
+
+    ]
+}

@@ -3,13 +3,21 @@
 
 <article class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-0 lg:px-2 xl:h-[28.5rem]">
     <section class="md:grid md:grid-cols-2 md:grid-rows-2 md:gap-1 lg:gap-4">
-        <div class="slot bg-white mt-4">
-            <img src="/images/img-3.jpeg" alt="Image 3" class="pics md:w-full md:h-64">
-            <div class="info text-black p-1 md:h-20">
-                <h4 class="text-lg font-bold border border-dotted border-t-0 border-l-0 border-r-0 border-black">Fortnight Journal</h4>
-                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente corporis</p>
-            </div>
-        </div>
+        <% projects.forEach( item => { %>
+            <a href="<%= item.url %> ">
+                <div class="slot bg-white mt-4 hover:opacity-80 cursor-pointer">
+                    <img src="<%= item.imageUrl %>" alt="<%= item.imageAlt %>" class="pics md:w-full md:h-64" />
+                    <div class="info text-black p-1 md:min-h-min">
+                        <h4 class="text-lg font-bold border border-dotted border-t-0 border-l-0 border-r-0 border-black"><%= item.name %></h4>
+                        <p class="text-sm"><%= item.desc %></p>
+                    </div>
+                </div>
+            </a>
+        <% }) %>
+        
+        
+        
+<!--         
         <div class="slot bg-white mt-4">
             <img src="/images/easycare.jpg" alt="Image 1" class="pics md:w-full md:h-64">
             <div class="info text-black p-1 md:h-20">
@@ -39,7 +47,7 @@
                 <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecat</p>
             </div>
         </div>
-        
+         -->
     </section>
 
     <a href="/contact" >

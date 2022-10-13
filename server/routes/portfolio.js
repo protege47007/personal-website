@@ -1,10 +1,12 @@
 const express = require("express")
 const router = express.Router()
 
-module.exports = () => {
+module.exports = ({portfolioService}) => {
     router.get("/", async (req, res, next) => {
         try {
-            res.render('portfolio')
+            const projects = await portfolioService.getPortfolio()
+            // console.log(projects)
+            res.render('portfolio', {projects})
         } catch (error) {
             return next(error)
         }

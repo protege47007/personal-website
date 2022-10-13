@@ -21,9 +21,9 @@ module.exports = ({aboutService, portfolioService}) => {
         
     })
     router.use("/blog", blogRoute())
-    router.use("/resume", resumeRoute(aboutService))
+    router.use("/resume", resumeRoute({aboutService}))
     router.use("/contact", contactRoute())
-    router.use("/portfolio", portfolioRoute(portfolioService))
+    router.use("/portfolio", portfolioRoute({portfolioService}))
     router.use("/adminxyz", admin)
     
     return router

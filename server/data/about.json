@@ -1,0 +1,54 @@
+{
+    "about": {
+        "full_name": "Adewumi David",
+        "dob": "November '96",
+        "address": "Ogun State, Nigeria",
+        "job": "Software Engineer",
+        "bio": "Hi there👋, I'm David, welcome to my website. I'm a web developer🤓, a fan of Manchester United❤️ (even in this trying times 🤧), and love video games."
+    },
+    "resume": {
+        "skills": [],
+        "workExp": [
+            {
+                "position": "Backend Engineer",
+                "company": "@Easy Care Nigeria [Remote]",
+                "date": "December 2021 - January 2022",
+                "responsibilities": [
+                    "I created it using the standard RESTful API endpoints",
+                    "I also used express.js and EJS template engine",
+                    "MongoDB was used for the database and Cloudinary for image hosting",
+                    "Passport.js' Local and Google strategy was used for authentication",
+                    "The use of encrypted session cookies was implemented"
+                ]
+            },
+            {
+                "position": "Web Developer",
+                "company": "@Syntax Imagination, Ota",
+                "date": "April 2021 - February 2022",
+                "responsibilities": [
+                    "Improved the overall experience of customer care platform",
+                    "Tested APIs using postman",
+                    "Created some UI and PDF designs using Figma"
+                ]
+            },
+            {
+                "position": "Intern Web Developer",
+                "company": "@Syntax Imagination, Ota",
+                "date": "March 2020 - September 2020",
+                "responsibilities": [
+                    "Learned about the development process of making a professional web application"
+                ]
+            }
+        ],
+        "edu": {
+            "degree": "B. Tech Computer Science",
+            "school": "@Bells University of Technology, Ota",
+            "date": "September 2014 - October 2020"
+        },
+        "Thesis": {
+            "title": "Detecting Depression From Social Media Posts",
+            "desc": "Published July, 2019. ICT Department, College of Natural and Applied Sciences. Bells University, Ota."
+        },
+        "interests": []
+    }
+}

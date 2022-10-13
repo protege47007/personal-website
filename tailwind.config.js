@@ -1,7 +1,7 @@
 module.exports = {
   content: [
-    "./views/**/*.ejs",
-    "./public/scripts/**/*.js"
+    "./server/views/**/*.ejs",
+    "./server/public/scripts/**/*.js"
   ],
   presets: [],
   darkMode: 'media', // or 'class'

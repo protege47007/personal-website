@@ -9,6 +9,11 @@ const _ = require('lodash')
 const ejs = require('ejs')
 const routes = require("./routes")
 
+// const MongoStore = require("connect-mongo")(session);
+// const mongoose = require("mongoose")
+// const auth = require("./lib/auth")
+
+
 //services
 const AboutService = require("./services/aboutService")
 const PortfolioService = require("./services/portfolioService")
@@ -26,7 +31,27 @@ module.exports = (config) => {
   const aboutService = new AboutService(config.data.about)
   const portfolioService = new PortfolioService(config.data.portfolio)
 
-  
+  // app.use(
+  //   cookieSession({
+  //     name: "session",
+  //     keys: [process.env.KEY_1, process.env.KEY_2],
+  //   })
+  // )
+
+
+  app.use(cookieParser())
+  // app.use(
+  //   session({
+  //     secret: process.env.KEY_1,
+  //     resave: true,
+  //     saveUninitialized: false,
+  //     store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  //   })
+  // );
+  // app.use(auth.initialize)
+  // app.use(auth.session)
+  // app.use(auth.setUser)
+
   // middlewares
   app.set("view engine", "ejs")
   app.set("views", path.join(__dirname, "./views"))

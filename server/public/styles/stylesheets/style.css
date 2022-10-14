@@ -584,6 +584,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
+.cursor-wait {
+  cursor: wait;
+}
+
 .resize-none {
   resize: none;
 }

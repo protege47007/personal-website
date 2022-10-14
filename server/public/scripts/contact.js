@@ -1,9 +1,23 @@
 function $(id){
-    return document.querySelector(id);
+    return document.querySelector(id)
 }
 
+function reset(id, class_name){
+    $(class_name).classList.add('hidden')
+    $(id).textContent = ''
+    $("#btn").removeAttribute("disabled")
+    $("#btn").classList.remove("cursor-wait")
+    $("#btn").classList.add("cursor-pointer")
+}
+
+
+
 $('#form').addEventListener('submit', (e)=>{
-    e.preventDefault();
+    
+    e.preventDefault()
+    $("#btn").setAttribute("disabled", true)
+    $("#btn").classList.remove("cursor-pointer")
+    $("#btn").classList.add("cursor-wait")
 
     const data = {
         name: $('#name').value,
@@ -23,22 +37,35 @@ $('#form').addEventListener('submit', (e)=>{
         .then(data => {
 
             if (data.status === '200') {
-                $('.success').classList.remove('hidden');
-                $('#success').textContent = data.message;
+                $('.success').classList.remove('hidden')
+                $('#success').textContent = data.message
                 setTimeout(() => {
-                    $('.success').classList.add('hidden');
-                    $('#success').textContent = '';
-                }, 3000);
+                    reset("#success", ".success")
+                    $("#form").reset()
+                }, 3000)
               
             } else {
-              $('.fail').classList.remove('hidden');
-              $('#fail').textContent = data.message;
+                
+                
+                
+              $('.fail').classList.remove('hidden')
+              $('#fail').textContent = data.message
+              
+              function error(value){
+                const span = document.createElement("span")
+                span.classList.add("text-center", "block")
+                span.textContent = value
+                $("#fail").appendChild(span)
+                }
+              data.body.forEach( item => {
+                    error(item.msg)
+                })
               setTimeout(() => {
-                  $('.fail').classList.add('hidden');
-                  $('#fail').textContent = '';
-              }, 3000);
+                    reset("#fail", ".fail")
+              }, 10000)
+              
             }
-            console.log(data)
-        });
+            console.log("data pack:", data)
+        })
 })
 

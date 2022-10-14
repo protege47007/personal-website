@@ -12,7 +12,7 @@ module.exports = {
         mailing_agent: {
             key_1: `${process.env.JET_ONE}`,
             key_2: `${process.env.JET_TWO}`
-        }
+        },
     },
     production: {
         siteName: "Adewumi David A.",

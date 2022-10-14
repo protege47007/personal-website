@@ -28,17 +28,11 @@ module.exports = () => {
         try {
             const errors = validationResult(req) //this checks for errors from the constraints
         
-            if(!errors.isEmpty()){ // if there are errors from the req.body validation constraints
-                req.session.contact = {
-                    errors: errors.array() // returns an array of errors
-                }
-
-                return res.redirect("/contact")
-            }
-
+            if(!errors.isEmpty()) return next(createError(404, {status: '404', message: 'incomplete/incorrect credentials', body: errors.array()}))
+            
             const {name, mail, subject, message} = req.body;
 
-            console.log(req.body);
+            
             const request = mailJet.post("send", {'version': 'v3.1'})
             .request({
             "Messages":[
@@ -65,11 +59,11 @@ module.exports = () => {
             })
             request
             .then((result) => {
-                res.json({status: '200', message: 'success'});
-                console.log(result.body)
+                res.status(200).json({status: '200', message: 'success'});
+                
             })
             .catch((err) => {
-                return next(createError({body: err, message: "contact message was not sent"}))
+                return next(createError(500, {body: err, message: "contact message was not sent"}))
             })
 
         } catch (error) {

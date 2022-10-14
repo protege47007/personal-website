@@ -17,7 +17,7 @@
             
             <label for="body" class="mt-2 block text-lg font-bold lg:col-start-3 lg:col-end-6 lg:row-start-3">Message</label>
             <textarea name="message" id="body" placeholder="Write your message.." class="text-black text-lg w-11/12 p-2 outline-0 h-52 resize-none lg:col-start-3 lg:col-end-6 lg:row-start-4 lg:text-base" aria-placeholder="compose message" required autofocus></textarea>
-            <button type="submit"  class="mt-2 border border-dotted py-1 px-2 lg:col-end-6 lg:mr-10">Send</button>
+            <button type="submit" id="btn"  class="mt-2 border border-dotted py-1 px-2 lg:col-end-6 lg:mr-10">Send</button>
         </form>
         <%- include ('./partials/status.ejs', {image: "/images/cancel.png", id: "fail"}) -%>
         <%- include ('./partials/status.ejs', {image: "/images/Vector.png", id: "success"}) -%>

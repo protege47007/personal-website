@@ -4,6 +4,8 @@ const router = express.Router()
 module.exports = ({portfolioService}) => {
     router.get("/", async (req, res, next) => {
         try {
+            
+
             const projects = await portfolioService.getPortfolio()
             // console.log(projects)
             res.render('portfolio', {projects})

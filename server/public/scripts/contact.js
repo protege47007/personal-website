@@ -3,12 +3,20 @@ function $(id){
 }
 
 function reset(id, class_name){
+    $(class_name).classList.remove('flex')
     $(class_name).classList.add('hidden')
     $(id).textContent = ''
     $("#btn").removeAttribute("disabled")
     $("#btn").classList.remove("cursor-wait")
     $("#btn").classList.add("cursor-pointer")
 }
+
+function openModal(class_name, tag_id, content){
+    $(class_name).classList.remove('hidden')
+    $(class_name).classList.add('flex')
+    $(tag_id).textContent = content;
+}
+
 let screen_size = window.innerWidth
 
 let count = 0;
@@ -69,8 +77,7 @@ $('#form').addEventListener('submit', (e)=>{
 
             //success
             if (data.status === '200') {
-                $('.success').classList.remove('hidden')
-                $('#success').textContent = data.message
+                openModal(".success", "#success", data.message)
                 setTimeout(() => {
                     reset("#success", ".success")
                     $("#form").reset()
@@ -78,8 +85,7 @@ $('#form').addEventListener('submit', (e)=>{
               
             } else {
                 //failure
-                $('.fail').classList.remove('hidden')
-                $('#fail').textContent = data.message
+                openModal(".fail", "#fail", data.message)
                 
                 function error(value){
                     const span = document.createElement("span")
@@ -98,4 +104,3 @@ $('#form').addEventListener('submit', (e)=>{
             // console.log("data pack:", data)
         })
 })
-

@@ -3,13 +3,13 @@ let counter = 0;
 let index = 0;
 let currentTxt = '';
 let letter = '';
-var typing = document.querySelector('.typing');
+const typing = document.querySelector('.typing');
 
 (function type(){
     //if(counter === text.length){
       //  counter = 0;
     //}
-
+    
     currentTxt = text[counter];
     letter = currentTxt.slice(0, ++index);
     
@@ -19,6 +19,7 @@ var typing = document.querySelector('.typing');
         counter++;
         index =0; 
     }
+    if(letter.length == currentTxt.length && counter == text.length) return 0
     setTimeout(type, 400);
 }());
 

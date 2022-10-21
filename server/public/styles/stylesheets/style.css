@@ -516,16 +516,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 13rem;
 }
 
+.h-24 {
+  height: 6rem;
+}
+
 .h-14 {
   height: 3.5rem;
 }
 
 .h-8 {
   height: 2rem;
-}
-
-.h-24 {
-  height: 6rem;
 }
 
 .h-full {
@@ -538,10 +538,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-32 {
   height: 8rem;
-}
-
-.h-16 {
-  height: 4rem;
 }
 
 .w-56 {
@@ -578,6 +574,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-5\/12 {
   width: 41.666667%;
+}
+
+.min-w-\[5\.25rem\] {
+  min-width: 5.25rem;
 }
 
 .cursor-pointer {
@@ -620,10 +620,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-template-rows: repeat(4, minmax(0, 1fr));
 }
 
-.grid-rows-6 {
-  grid-template-rows: repeat(6, minmax(0, 1fr));
-}
-
 .grid-rows-1 {
   grid-template-rows: repeat(1, minmax(0, 1fr));
 }
@@ -646,10 +642,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .rounded-sm {
   border-radius: 0.125rem;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
 }
 
 .rounded-full {
@@ -824,11 +816,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   letter-spacing: 0.025em;
 }
 
-.text-red-600 {
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -842,6 +829,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .opacity-75 {
@@ -862,12 +854,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.hover\:opacity-100:hover {
-  opacity: 1;
-}
-
 .hover\:opacity-80:hover {
   opacity: 0.8;
+}
+
+.hover\:opacity-100:hover {
+  opacity: 1;
 }
 
 @media (min-width: 768px) {
@@ -887,10 +879,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:h-64 {
     height: 16rem;
-  }
-
-  .md\:h-20 {
-    height: 5rem;
   }
 
   .md\:min-h-min {
@@ -925,10 +913,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:grid-rows-2 {
     grid-template-rows: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:grid-rows-4 {
-    grid-template-rows: repeat(4, minmax(0, 1fr));
   }
 
   .md\:gap-1 {
@@ -1041,12 +1025,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
-  .lg\:h-full {
-    height: 100%;
+  .lg\:h-96 {
+    height: 24rem;
   }
 
-  .lg\:h-\[25rem\] {
-    height: 25rem;
+  .lg\:h-\[28rem\] {
+    height: 28rem;
   }
 
   .lg\:h-12 {
@@ -1057,40 +1041,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 100vh;
   }
 
-  .lg\:h-72 {
-    height: 18rem;
-  }
-
-  .lg\:h-96 {
-    height: 24rem;
-  }
-
-  .lg\:h-\[32rem\] {
-    height: 32rem;
-  }
-
-  .lg\:h-\[36rem\] {
-    height: 36rem;
-  }
-
-  .lg\:h-\[37rem\] {
-    height: 37rem;
-  }
-
-  .lg\:h-\[36\.5rem\] {
-    height: 36.5rem;
-  }
-
   .lg\:h-\[36\.25rem\] {
     height: 36.25rem;
   }
 
-  .lg\:h-\[27rem\] {
-    height: 27rem;
-  }
-
-  .lg\:h-\[28rem\] {
-    height: 28rem;
+  .lg\:h-72 {
+    height: 18rem;
   }
 
   .lg\:w-full {
@@ -1198,10 +1154,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     border-right-width: 1px;
   }
 
-  .lg\:border-r-2 {
-    border-right-width: 2px;
-  }
-
   .lg\:border-dotted {
     border-style: dotted;
   }
@@ -1210,14 +1162,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 0.5rem;
   }
 
-  .lg\:px-2 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
   .lg\:py-3 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+  }
+
+  .lg\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   .lg\:px-1 {
@@ -1254,18 +1206,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1280px) {
-
-  .xl\:h-\[41rem\] {
-    height: 41rem;
-  }
-
-  .xl\:h-\[30rem\] {
-    height: 30rem;
-  }
-
-  .xl\:h-\[29rem\] {
-    height: 29rem;
-  }
 
   .xl\:h-\[28\.5rem\] {
     height: 28.5rem;

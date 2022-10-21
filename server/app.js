@@ -62,53 +62,6 @@ module.exports = (config) => {
 
   app.use("/", routes({aboutService, portfolioService}))
 
-  
-  
-
-  // app.post('/contact', (req, res) => {
-  //     const {name, mail, subject, message} = req.body
-
-  //     console.log(req.body)
-  //     const request = mailjet
-  // .post("send", {'version': 'v3.1'})
-  // .request({
-  //   "Messages":[
-  //     {
-  //       "From": {
-  //         "Email": "akdadewumi@gmail.com",
-  //         "Name": "David"
-  //       },
-  //       "To": [
-  //         {
-  //           "Email": "akdadewumi@gmail.com",
-  //           "Name": ""
-  //         }
-  //       ],
-  //       "Subject": `${subject}`,
-  //       "TextPart": `Name: ${name}, mail: ${mail}, Message:  ${message}`,
-  //       "HTMLPart": "<h3>Good Day Boss,</h3><br />"+
-  //       `<p> Mr/Miss/Mrs ${name}, left you a message that says,</p> <br/>`+
-  //       `<p style:"font-weight: 700">${message}</p><br/>`+
-  //       `<p>You can reach them at: <a href="mailto:${mail}">${mail}</a></p>`,
-  //       "CustomID": "messageFromWebApp"
-  //     }
-  //   ]
-  // })
-  // request
-  //   .then((result) => {
-  //     res.json({status: '200', message: 'success'})
-  //     console.log(result.body)
-  //   })
-  //   .catch((err) => {
-  //       res.json({status: '500', message: 'internal server error', body: err})
-  //     console.log(err.statusCode)
-  //   })
-
-
-
-  // })
-
-
   // catch 404 and forward to error handler
   app.use( (req, res, next) => {
     return next(createError(404, "File Not Found"))
@@ -123,8 +76,6 @@ module.exports = (config) => {
     res.status(500).json({body: err.body, message: err.message})
   })
 
-
-  
 
   return app
 }

@@ -43,7 +43,7 @@ module.exports = () => {
                 },
                 "To": [
                     {
-                    "Email": "akdadewumi@gmail.com",
+                    "Email": "lakerzhitman@gmail.com",
                     "Name": ""
                     }
                 ],
@@ -63,7 +63,7 @@ module.exports = () => {
                 
             })
             .catch((err) => {
-                return next(createError(500, {body: err, message: "contact message was not sent"}))
+                return next(createError(500, {body: err, message: "Your message was not sent"}))
             })
 
         } catch (error) {

@@ -6,7 +6,7 @@
         <% projects.forEach( item => { %>
             <a href="<%= item.url %> ">
                 <div class="slot bg-white mt-4 hover:opacity-80 cursor-pointer">
-                    <img src="<%= item.imageUrl %>" alt="<%= item.imageAlt %>" class="pics md:w-full md:h-64" />
+                    <img src="<%= item.imageUrl %>" alt="<%= item.imageAlt %>" class="pics min-h-[14rem] md:w-full md:h-64 mx-auto my-auto" />
                     <div class="info text-black p-1 md:min-h-min">
                         <h4 class="text-lg font-bold border border-dotted border-t-0 border-l-0 border-r-0 border-black"><%= item.name %></h4>
                         <p class="text-sm"><%= item.desc %></p>

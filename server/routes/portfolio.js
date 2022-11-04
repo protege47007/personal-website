@@ -7,7 +7,7 @@ module.exports = ({portfolioService}) => {
             
 
             const projects = await portfolioService.getPortfolio()
-            // console.log(projects)
+            
             res.render('portfolio', {projects})
         } catch (error) {
             return next(error)

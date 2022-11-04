@@ -1,13 +1,14 @@
 const express = require("express")
 const path = require("path")
 const createError = require("http-errors")//
-const cookieSession = require("cookie-session")//
-const cookieParser = require("cookie-parser")//
-const session = require("express-session")//
+// const cookieSession = require("cookie-session")// uninstall
+// const cookieParser = require("cookie-parser")//
+// const session = require("express-session")//
 const logger = require("morgan")//
 const _ = require('lodash')
 const ejs = require('ejs')
 const routes = require("./routes")
+const cors = require("cors")
 
 // const MongoStore = require("connect-mongo")(session);
 // const mongoose = require("mongoose")
@@ -18,6 +19,7 @@ const routes = require("./routes")
 const AboutService = require("./services/aboutService")
 const PortfolioService = require("./services/portfolioService")
 const AuthService = require("./services/auth")
+const LogService = require("./services/logService")
 
 
 // require('dotenv').config()
@@ -30,6 +32,7 @@ module.exports = (config) => {
   const app = express() 
   const aboutService = new AboutService(config.data.about)
   const portfolioService = new PortfolioService(config.data.portfolio)
+  const logService = new LogService(config.data.log)
 
   // app.use(
   //   cookieSession({
@@ -37,9 +40,14 @@ module.exports = (config) => {
   //     keys: [process.env.KEY_1, process.env.KEY_2],
   //   })
   // )
+  app.use(cors())
+  app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-with,Content-Type,Accept,Authorization");
+    next()
+  })
 
-
-  app.use(cookieParser())
+  // app.use(cookieParser())
   // app.use(
   //   session({
   //     secret: process.env.KEY_1,
@@ -60,19 +68,20 @@ module.exports = (config) => {
   app.use(express.static(path.join(__dirname, "./public")))
 
 
-  app.use("/", routes({aboutService, portfolioService}))
+  app.use("/", routes({aboutService, portfolioService, logService}))
 
   // catch 404 and forward to error handler
   app.use( (req, res, next) => {
-    return next(createError(404, "File Not Found"))
+    res.render("404")
   })
   
   // error handler
-  app.use( (err, req, res, next) => {
+  app.use( async (err, req, res, next) => {
     console.log(err)
     res.locals.message = err.message // global error message
     const status = err.status || 500
     res.locals.status = status // global error status
+    // await logservice.saveLogData({name: "error_report", date: new Date(), body: err})
     res.status(500).json({body: err.body, message: err.message})
   })
 

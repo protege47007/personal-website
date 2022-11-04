@@ -13,6 +13,12 @@ module.exports = {
             key_1: `${process.env.JET_ONE}`,
             key_2: `${process.env.JET_TWO}`
         },
+        db: {
+            url: process.env.TEST_DB_URL
+        },
+        session: {
+            key: process.env.SESSION_ONE
+        }
     },
     production: {
         siteName: "Adewumi David A.",
@@ -23,6 +29,12 @@ module.exports = {
         mailing_agent: {
             key_1: `${process.env.JET_ONE}`,
             key_2: `${process.env.JET_TWO}`
+        },
+        db: {
+            url: process.env.DB_URL
+        },
+        session: {
+            key: process.env.SESSION_ONE
         }
     }
 }

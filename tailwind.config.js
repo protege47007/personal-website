@@ -1,11 +1,16 @@
 module.exports = {
   content: [
-    "./server/views/**/*.ejs",
+    "./server/views/**/**/*.ejs",
     "./server/public/scripts/**/*.js"
   ],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
+    extend: {
+      backgroundImage: {
+        '404-gif': "url('/gifs/404.gif')"
+      }
+    },
     screens: {
       sm: '640px',
       md: '768px',

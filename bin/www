@@ -9,6 +9,7 @@ let debug = require('debug')('Protege:server');
 let http = require('http');
 const config = require("../server/config")[process.env.NODE_ENV || "development"]
 const app = require('../server/app')(config)
+const database = require('../server/lib/db')
 /**
  * Get port from environment and store in Express.
  */
@@ -22,12 +23,13 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-// db.connect(config.database.dsn).then( () => {
-//   server.listen(port)
-// }).catch( (err) => {
-//   console.log(err)
-// })
-server.listen(port)
+database.connect(config.db.url).then( () => {
+  server.listen(port)
+  console.log("database is live")
+}).catch( (err) => {
+  console.log(err)
+})
+// server.listen(port)
 
 /**
  * Listen on provided port, on all network interfaces.

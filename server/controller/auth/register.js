@@ -17,11 +17,13 @@ module.exports = async (req, res, next) => {
         })
 
         const savedAdmin = await newAdmin.save()
-        if(savedAdmin) return (res.status(200).json({body: savedAdmin, message: "Admin created successfully"}))
-
+        if(savedAdmin){
+            const { full_name, dob, location, job, bio } = savedAdmin
+            (res.status(200).json({body: {full_name, dob, location, job, bio}, message: "Admin created successfully"}))
+        }
         return next(createError(501, "Internal Server Error"))
 
     }catch(error){
-        return next(createError(501, "Internal Server Error"))
+        return next(createError(500, {body: error, message: "Internal Server Error"}))
     }
 }

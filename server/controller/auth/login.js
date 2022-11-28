@@ -1,6 +1,7 @@
 const Admin = require("../../models/about")
 const createError = require("http-errors")
 const { session } = require("../../config")[process.env.NODE_ENV || "development"]
+const jwt = require("jsonwebtoken")
 
 
 module.exports = async (req, res, next) => {
@@ -26,6 +27,7 @@ module.exports = async (req, res, next) => {
                     if(!ok) return next(createError(500, {messgae: "internal server error"}))
                     
                     res.status(200).json({body: token, message: "Login success"})
+                    res.redirect("/dashboard/")
                 })
                 
             })

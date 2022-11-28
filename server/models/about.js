@@ -47,8 +47,7 @@ const profileSchema = new mongoose.Schema({
         required: true,
     },
     token: {
-        type: String,
-        required: true
+        type: String
     }
 }, {timestamps: true});
 
@@ -72,4 +71,4 @@ profileSchema.methods.comparePassword = async function comparePassword(userPassw
 }
 
 
-module.exports = mongoose.model("Client", profileSchema)
+module.exports = mongoose.model("Profile", profileSchema)

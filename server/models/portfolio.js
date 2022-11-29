@@ -1,4 +1,4 @@
-const mongoose = require(mongoose)
+const mongoose = require("mongoose")
 
 const portfolioSchema = new mongoose.Schema({
     name: {
@@ -26,4 +26,4 @@ const portfolioSchema = new mongoose.Schema({
 }, {timestamps: true})
 
 
-module.exports = mongoose.model(Client, portfolioSchema)
+module.exports = mongoose.model("Portfolio", portfolioSchema)

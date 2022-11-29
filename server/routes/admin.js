@@ -11,7 +11,6 @@ const { redirectIfLoggedIn } = require("../middlewares/auth")
 
 
 module.exports = () => {
-    // const { avatars } = params
     router.post("/login",login_constraints, login_controller)
     
     router.get("/login", redirectIfLoggedIn , (req, res) => {

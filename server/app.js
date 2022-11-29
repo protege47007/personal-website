@@ -2,7 +2,7 @@ const express = require("express")
 const path = require("path")
 const createError = require("http-errors")//
 // const cookieSession = require("cookie-session")// uninstall
-// const cookieParser = require("cookie-parser")//
+const cookieParser = require("cookie-parser")
 // const session = require("express-session")//
 const logger = require("morgan")//
 const _ = require('lodash')
@@ -47,7 +47,7 @@ module.exports = (config) => {
     next()
   })
 
-  // app.use(cookieParser())
+  app.use(cookieParser())
   // app.use(
   //   session({
   //     secret: process.env.KEY_1,

@@ -47,15 +47,15 @@
         <section class="resume-item border border-dotted border-white mt-4">
             <h3 class=" text-3xl py-2 border border-dotted border-t-0 border-l-0 border-r-0 border-white">Thesis</h3>
             <div class="pub px-2">
-                <p class="pub-title text-lg font-bold"><%= resume.Thesis.title %></p>
-                <span class="opacity-75 text-base"><%= resume.Thesis.desc %></span>
+                <p class="pub-title text-lg font-bold"><%= resume.thesis.title %></p>
+                <span class="opacity-75 text-base"><%= resume.thesis.desc %></span>
             </div>
         </section>
 
         <section class="resume-item border border-dotted border-white mt-4">
             <h3 class=" text-3xl py-2 border border-dotted border-t-0 border-l-0 border-r-0 border-white">Certifications</h3>
             <div class="edu">
-                <% resume.Certificates.forEach( cert => { %>
+                <% resume.certificates.forEach( cert => { %>
                     <div class="edu-item p-2">
                         <p class="resume-tag text-lg font-bold"><%= cert.course %></p>
                         <span class="text-lg font-normal opacity-75">issued by: <%= cert.issued_by %></span>

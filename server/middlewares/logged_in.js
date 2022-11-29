@@ -5,9 +5,10 @@ const { session } = require("../config")[process.env.NODE_ENV || "development"]
 
 module.exports = (req, res, next) => {
     try{
-        if(!req.headers.authorization) return next (createError(403, "Please supply an authorization header"))
+        // !req.headers.authorization ||
+        if( !req.signedCookie) return next (createError(403, "Please supply an authorization header"))
 
-        const enc_token = req.headers.authorization.split(' ')[1]
+        const enc_token = req.signedCookie
 
         if (!enc_token || typeof enc_token == "undefined") {
             return next(createError(401, "No authorization token supplied"))

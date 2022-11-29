@@ -1,16 +1,18 @@
 const express = require("express")
 const router = express.Router()
-const resumeRoute = require("./resume")
-const portfolioRoute = require("./portfolio")
+const about_controller = require("../../controller/dashboard/about")
+const About_Model = require("../../models/about")
+const Portfolio_Model = require("../../models/portfolio")
 
 
 // aboutServices is coming from params obj passed to the routes 
-module.exports = ({aboutService, portfolioService}) => {
+module.exports = ({}) => {
     
 
     router.get("/", async (req, res, next) => {
         try {
             const aboutInfo = await aboutService.getAboutInfo()
+            
             
             res.render('dashboard/profile', { aboutInfo }) 
         } catch (error) {
@@ -19,7 +21,9 @@ module.exports = ({aboutService, portfolioService}) => {
         
     })
 
-    router.post("/", async (req, res, next) => { //add validation middle wares
+    router.post("/", about_controller)
+
+    router.get("/resume", async (req, res, next) => { //add validation middle wares
         try {
             const { full_name, dob, location, job } = req.body
             
@@ -28,8 +32,15 @@ module.exports = ({aboutService, portfolioService}) => {
             return next(error)
         }
     } )
-    router.use("/resume", resumeRoute({aboutService}))
-    router.use("/portfolio", portfolioRoute({portfolioService}))
+    router.get("/portfolio", async (req, res, next) => { //add validation middle wares
+        try {
+            const { full_name, dob, location, job } = req.body
+            
+
+        } catch (error) {
+            return next(error)
+        }
+    } )
     
     return router
 }

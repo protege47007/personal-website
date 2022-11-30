@@ -1,6 +1,6 @@
 module.exports = {
   content: [
-    "./server/views/**/**/*.ejs",
+    "./server/views/**/**/**/*.ejs",
     "./server/public/scripts/**/*.js"
   ],
   presets: [],

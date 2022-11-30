@@ -2,7 +2,8 @@ const createError = require("http-errors")
 
 module.exports = function (req, res, next){
     try {
-        
+        console.log(req.admin)
+        res.send("im here")
     } catch (error) {
         return next(createError(500, {body: error, message: "internal server error"}))
     }

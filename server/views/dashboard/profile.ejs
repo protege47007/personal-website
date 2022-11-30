@@ -1,17 +1,30 @@
 <%- include('./partials/header') -%>
+</head>
+<body class="bg-gray-100">
 
-<div>
-    <img src="" alt="" />profile_pic
-    <input type="text" name="full_name" id="" />
-    <input type="text" name="job" id="" />
-    <input type="text" name="dob" id="" />
-    <input type="text" name="bio" id="" />
-    <input type="text" name="location" id="" />
-    <input type="email" name="mail" id="" />
-    <input type="text" name="" id="" />
-    <input type="text" name="" id="" />
-    <input type="text" name="" id="" />
-    <input type="text" name="" id="" />
+<div class="grid grid-cols-12">
+    
+    <%- include('./partials/nav') -%> 
+    <div class="col-span-10 px-4">
+        <h1 class="text-4xl col-span-9 mb-4">Dashboard</h1>
+
+        <div>
+            <% for( key in aboutInfo ) { %>
+                <p class="text-lg "><%= key %> : <%= aboutInfo[key] %>  </p>
+            <% } %>
+            
+        </div>
+        <div>
+            <img src="" alt="" />profile_pic
+            <input type="text" name="full_name" id="" />
+            <input type="text" name="job" id="" />
+            <input type="text" name="dob" id="" />
+            <input type="text" name="bio" id="" />
+            <input type="text" name="location" id="" />
+            <input type="email" name="mail" id="" />
+            <input type="submit" value="save profile"/>
+        </div>
+    </div>
 </div>
 
 <%- include('./partials/footer') -%> 

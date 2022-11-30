@@ -11,9 +11,9 @@ const { redirectIfLoggedIn } = require("../middlewares/auth")
 
 
 module.exports = () => {
-    router.post("/login",login_constraints, login_controller)
+    router.post("/login", redirectIfLoggedIn, login_constraints, login_controller)
     
-    router.get("/login", redirectIfLoggedIn , (req, res) => {
+    router.get("/login", redirectIfLoggedIn, (req, res) => {
         // attach errors
         const errors = false
         res.render("dashboard/login", { errors })
@@ -21,12 +21,13 @@ module.exports = () => {
 
     router.get("/logout", async (req, res, next) => {
         try {
-            const { mail } = req.admin.mail
+            const { mail } = req.signedCookies["cart"]
 
             const done = await Admin.findOneAndUpdate({ mail }, { token: ""})
             if(done){ 
+                
+                res.cookie("value", "token", { signed: true })
                 res.redirect("/")
-                req.admin = ""
             }
 
             return next(createError(500, {message: "could not log out successfully!"}))

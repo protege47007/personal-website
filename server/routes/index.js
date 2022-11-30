@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const createError = require("http-errors")
 const blogRoute = require("./blog")
 const contactRoute = require("./contact")
 const resumeRoute = require("./resume")
@@ -20,7 +21,7 @@ module.exports = ({aboutService, portfolioService, logService}) => {
             // const aboutInfo = { full_name, mail, dob, job, bio } = await debug.findOne
             res.render('about', { aboutInfo }) 
         } catch (error) {
-            return next(error)
+            return next(createError(500, {body: error, message: "internal server error"}))
         }
         
     })
@@ -29,7 +30,15 @@ module.exports = ({aboutService, portfolioService, logService}) => {
     router.use("/contact", contactRoute())
     router.use("/portfolio", portfolioRoute({portfolioService}))
     router.use("/adminxyz", admin({logService}))
-    router.use("/dashboard/", logged_in, dashboard)
+    router.get("/fish", 
+    function (req, res, next){
+        console.log("fish test")
+        return next()
+    },
+    function(req, res, next){
+        res.status(200).json({body: "fish data", message: "success"})
+    })
+    router.use("/dashboard", logged_in, dashboard())
     
     return router
 }

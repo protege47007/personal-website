@@ -1,35 +1,40 @@
 const createError = require("http-errors")
 const jwt = require("jsonwebtoken")
-const { session } = require("../config")[process.env.NODE_ENV || "development"]
+const { session } = require("../config")[process.env.NODE_ENV || "development"] 
 
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
     try{
-        // !req.headers.authorization ||
-        if( !req.signedCookie) return next (createError(403, "Please supply an authorization header"))
+        
+        if( !req.signedCookies["cart"]) return next (createError(403, "Please supply an authorization header"))
 
-        const enc_token = req.signedCookie
+        const enc_token = req.signedCookies["cart"]
 
-        if (!enc_token || typeof enc_token == "undefined") {
-            return next(createError(401, "No authorization token supplied"))
-        } else if (enc_token) {
+        if (!enc_token || typeof enc_token == "undefined") return next(createError(401, "No authorization token supplied"))
+        
             
-            jwt.verify(enc_token, session.key, (err, dec_token) => {
+        jwt.verify(enc_token, session.key, (err, dec_token) => {
                 
-                if(err) return next(createError(401, "Your session has expired. please login again"))
-                if (dec_token) {
-                    //renew token logic needed
-                  if(dec_token.account_type!=='Admin')return next(createError(401, "You do not have the required credential to perform this operation"))
-                 req.admin = { userId: dec_token.userId, mail: dec_token.mail, full_name: dec_token.full_name }
-                 
-                next();
-              } else {
-                return next(createError(401, "Missing required authentication"))
-              }
-            });
-        }
+            if(err) {
+                res.cookie("state", "auth-404")
+                res.status(403).redirect("/adminxyz/login")
+            }
+                
+            if (!dec_token) return next(createError(401, "Missing required authentication"))
+            
+            //renew token logic needed
+            if(dec_token.account_type!=='Admin') return next(createError(401, "You do not have the required credential to perform this operation"))
+                
+            req.admin = { userId: dec_token.userId, mail: dec_token.mail, full_name: dec_token.full_name }
+            // console.log("moving to next function")
+                
+            
+        })
+        return next()
+
 
     }catch(error){
+        console.log("middleware", error)
         return next(createError(500, "Internal Server Error"))
     }
 }

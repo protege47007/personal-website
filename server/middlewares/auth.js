@@ -1,6 +1,7 @@
 function redirectIfLoggedIn(req, res, next){
-    if(req.admin) return res.redirect("/dashboard")
-    return next()
+    console.log(res.signedCookies)
+    if( typeof res.signedCookies == "undefined" || !res.signedCookies["cart"]) return next()
+    return res.redirect("/dashboard")
 }
 
 // function isUserLoggedIn(req, res, next){

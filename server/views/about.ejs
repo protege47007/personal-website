@@ -6,22 +6,22 @@
         <section class="abt-section mb-10 lg:mb-0 lg:basis-2/5 ">
             <h3 class="text-3xl py-2 border border-dotted border-l-0 border-t-0 border-r-0 ">About Info</h3>
             <div class="about-content grid grid-cols-1 grid-rows-4 py-2 md:w-10/12 mt-1 lg:border lg:border-dotted lg:border-l-0 lg:border-t-0 ">
-                <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-0 ">
-                    <p class="label text-xl ">Full Name:</p>
-                    <p class="attr text-base tracking-wide opacity-75"><%- aboutInfo.full_name -%></p>
-                </span>
-                <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-r-0 lg:border-b ">
-                    <p class="label text-xl">Birthday:</p>
-                    <p class="attr text-base tracking-wide opacity-75"><%- aboutInfo.dob -%></p>
-                </span>
-                <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-r-0 lg:border-b">
-                    <p class="label text-xl">Location:</p>
-                    <p class="attr text-base tracking-wide opacity-75"> <%- aboutInfo.address -%></p>
-                </span>
-                <span class="items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b md:border-r lg:border-r-0 lg:border-b-0">
-                    <p class="label text-xl">Day Job:</p>
-                    <p class="attr text-base tracking-wide opacity-75"><%- aboutInfo.job -%></p>
-                </span>
+                <div class="lg:inline-block items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-0 ">
+                    <span class="lg:inline-block pr-4 label text-xl ">Full Name:</span>
+                    <p class="lg:inline-block attr text-base tracking-wide opacity-75"><%- aboutInfo.full_name -%></p>
+                </div>
+                <div class="lg:inline-block items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-r-0 lg:border-b ">
+                    <span class="lg:inline-block pr-4 label text-xl">Birthday:</span>
+                    <p class="lg:inline-block attr text-base tracking-wide opacity-75"><%- aboutInfo.dob -%></p>
+                </div>
+                <div class="lg:inline-block items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b-0 md:border-r lg:border-r-0 lg:border-b">
+                    <span class="lg:inline-block pr-4 label text-xl">Location:</span>
+                    <p class="lg:inline-block attr text-base tracking-wide opacity-75"> <%- aboutInfo.address -%></p>
+                </div>
+                <div class="lg:inline-block items grid grid-cols-2 gap-0 py-1 border border-dotted border-white border-r-0 border-l-0  border-b md:border-r lg:border-r-0 lg:border-b-0">
+                    <span class="lg:inline-block pr-4 label text-xl">Day Job:</span>
+                    <p class="lg:inline-block attr text-base tracking-wide opacity-75"><%- aboutInfo.job -%></p>
+                </div>
             </div>
         </section>
         <section class="mem mb-10 lg:mb-0 lg:basis-3/5">

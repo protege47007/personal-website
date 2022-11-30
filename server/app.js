@@ -34,12 +34,7 @@ module.exports = (config) => {
   const portfolioService = new PortfolioService(config.data.portfolio)
   const logService = new LogService(config.data.log)
 
-  // app.use(
-  //   cookieSession({
-  //     name: "session",
-  //     keys: [process.env.KEY_1, process.env.KEY_2],
-  //   })
-  // )
+  
   app.use(cors())
   app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
@@ -47,7 +42,7 @@ module.exports = (config) => {
     next()
   })
 
-  app.use(cookieParser())
+  app.use(cookieParser(`${process.env.COOKIE_KEY}`))
   // app.use(
   //   session({
   //     secret: process.env.KEY_1,

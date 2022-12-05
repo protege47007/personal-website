@@ -1,27 +1,27 @@
 <%- include('./partials/header') -%>
 <%- include('./partials/nav') -%>
 
-<article class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-0 lg:p-2">
+<div class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-0 lg:p-2">
     
     <section class="relative ">
         
         <form id="form" class="p-6 my-3 border border-dotted border-white md:w-10/12 md:mx-auto lg:grid lg:grid-cols-5 lg:grid-flow-row lg:auto-rows-max lg:w-full lg:py-3 lg:my-0">
             <label for="name" class=" block text-lg font-bold lg:col-start-1 lg:col-end-3">Name</label>
-            <input type="text" class="w-11/12 p-2 text-lg text-black outline-0 lg:col-start-1 lg:col-end-3 lg:text-base" name="name" placeholder="Name" aria-placeholder="name" id="name" minlength="7" required>
+            <input type="text" class="w-11/12 p-2 text-lg text-black outline-0 lg:col-start-1 lg:col-end-3 lg:text-base" name="name" placeholder="Name"  id="name" minlength="7" required>
 
             <label for="mail" class="mt-2 block text-lg font-bold lg:col-start-1 lg:col-end-3">Email</label>
-            <input type="email" class="w-11/12 p-2 text-lg text-black outline-0 lg:col-start-1 lg:col-end-3 lg:h-12 lg:text-base" name="mail" placeholder="email address" id="mail"  aria-placeholder="email" required>
+            <input type="email" class="w-11/12 p-2 text-lg text-black outline-0 lg:col-start-1 lg:col-end-3 lg:h-12 lg:text-base" name="mail" placeholder="email address" id="mail" required>
 
             <label for="subject" class="mt-2 block text-lg font-bold lg:col-start-3 lg:col-end-6 lg:row-start-1">Subject</label>
-            <input type="text" class="w-11/12 p-2 text-lg text-black outline-0 lg:col-start-3 lg:col-end-6 lg:row-start-2 lg:text-base" name="subject" placeholder="Subject" id="subject"  aria-placeholder="subject" required>
+            <input type="text" class="w-11/12 p-2 text-lg text-black outline-0 lg:col-start-3 lg:col-end-6 lg:row-start-2 lg:text-base" name="subject" placeholder="Subject" id="subject" required>
             
             <label for="body" class="mt-2 block text-lg font-bold lg:col-start-3 lg:col-end-6 lg:row-start-3">Message</label>
-            <textarea name="message" id="body" placeholder="Write your message.." class="text-black text-lg w-11/12 p-2 outline-0 h-52 resize-none lg:col-start-3 lg:col-end-6 lg:row-start-4 lg:text-base" aria-placeholder="compose message" required autofocus></textarea>
+            <textarea name="message" id="body" placeholder="Write your message.." class="text-black text-lg w-11/12 p-2 outline-0 h-52 resize-none lg:col-start-3 lg:col-end-6 lg:row-start-4 lg:text-base" required autofocus></textarea>
             <button type="submit" id="btn"  class="mt-2 border border-dotted py-1 px-2 lg:col-end-6 lg:mr-10">Send</button>
         </form>
         <%- include ('./partials/status.ejs', {image: "/images/cancel.png", id: "fail"}) -%>
         <%- include ('./partials/status.ejs', {image: "/images/Vector.png", id: "success"}) -%>
     </section>
-</article>
+</div>
 
 <%- include('./partials/footer') -%>

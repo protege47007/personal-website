@@ -1,0 +1,11 @@
+<ul class="flex flex-row bg-purple-500 py-2 px-3 justify-center">
+    <% [ {url: "/dashboard/resume/skills", name: "my skills"}, {url: "/dashboard/resume/xps", name: "work xps"}, {url: "/dashboard/resume/edu", name: "education"}, {url: "/dashboard/resume/certs", name: "certifications"}, {url: "/dashboard/resume/interests", name: "interests"}, {url: "/dashboard/resume/pdfs", name: "resumes"}].map( link => { %> 
+    
+        <a href="<%= link.url %>" class="nav">
+            <li class="mx-4 border border-black py-2 px-3 hover:text-white hover:border-white">
+                <%= link.name %> 
+            </li>
+        </a>
+
+    <% }) %> 
+</ul>

@@ -26,9 +26,6 @@ const profileSchema = new mongoose.Schema({
         index: {unique: true},
         minlength: 6
     },
-    profile_picture: {
-        type: String,
-    },
     location: {
         type: String,
         required: true,

@@ -189,11 +189,11 @@
             "school": "@Bells University of Technology, Ota",
             "date": "September 2014 - October 2020"
         },
-        "Thesis": {
+        "thesis": {
             "title": "Detecting Depression From Social Media Posts",
             "desc": "Published July, 2019. ICT Department, College of Natural and Applied Sciences. Bells University, Ota."
         },
-        "Certificates": [
+        "certificates": [
             {
                 "course": "Frontend Developer (React.js)",
                 "issued_by": "Side Hustle Internship",

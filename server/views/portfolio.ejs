@@ -1,7 +1,7 @@
 <%- include('./partials/header') -%>
 <%- include('./partials/nav') -%>
 
-<article class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-0 lg:px-2 xl:h-[28.5rem]">
+<div class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-0 lg:px-2 xl:h-[28.5rem]">
     <section class="md:grid md:grid-cols-2 md:grid-rows-2 md:gap-1 lg:gap-4">
         <% projects.forEach( item => { %>
             <a href="<%= item.url %> ">
@@ -29,6 +29,6 @@
             <i class="fa fa-solid fa-arrow-right text-white px-2 hover:text-black"></i>
         </h4>
     </a>
-</article>
+</div>
 
 <%- include('./partials/footer') -%>

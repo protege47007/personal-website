@@ -6,23 +6,53 @@
     
     <%- include('./partials/nav') -%> 
     <div class="col-span-10 px-4">
-        <h1 class="text-4xl col-span-9 mb-4">Dashboard</h1>
+        <h1 class="text-4xl col-span-9 mb-4">Dashboard -about</h1>
 
         <div>
-            <% for( key in aboutInfo ) { %>
-                <p class="text-lg "><%= key %> : <%= aboutInfo[key] %>  </p>
-            <% } %>
+            <!-- <%  for( key in aboutInfo ) { %>
+                <p class="text-lg py-2 px-3"><%= key.replace(/_/, " ") %> : <%= aboutInfo[key] %>  </p>
+            <% } %> -->
+            <form action="/dashboard/" method="POST" enctype="multipart/form-data" class="text-xs border-2 border-purple-400 p-4 relative">
+                <div class="mx-auto my-3 absolute right-4 px-4">
+                    <label class="inline-block font-bold mr-2 w-24" for="profile_pic">profile pic:</label>
+                    <img src="<%= !profile_pic? "/images/placeholder.jpg" : profile_pic %> " alt="" id="profile_pic" class="w-56 h-60"/>
+                    <label for="img" class="block font-bold py-2 mt-1">Select image:</label>
+                    <input type="file" id="img" name="profile_pic" accept="image/*" class="border border-purple-400 outline-purple-500 bg-white py-2 px-3 " />
+                </div>
+                <div class="mx-auto my-3">
+                    <label class="inline-block font-bold mr-2 w-24" for="full_name">Full name:</label>
+                    <input type="text" id="full_name" value="<%= aboutInfo.full_name %>" class="py-2 px-4 border border-purple-400" />
+                </div>
+                <div class="mx-auto my-3">
+                    <label class="inline-block font-bold mr-2 w-24" for="job">Job:</label>
+                    <input type="text" id="job" value="<%= aboutInfo.job %>" class="py-2 px-4 border border-purple-400" />
+                </div>
+                <div class="mx-auto my-3">
+                    <label class="inline-block font-bold mr-2 w-24" for="dob">DoB:</label>
+                    <input type="text" id="dob" value="<%= aboutInfo.dob %>" class="py-2 px-4 border border-purple-400" />
+                </div>
+                <div class="mx-auto my-3">
+                    <label class="inline-block font-bold mr-2 w-24" for="bio">Bio:</label>
+                    <textarea id="bio"  class="w-6/12 h-48 py-2 px-4 border border-purple-400 resize-none" ><%= aboutInfo.bio %></textarea>
+                </div>
+                <div class="mx-auto my-3">
+                    <label class="inline-block font-bold mr-2 w-24" for="location">Location:</label>
+                    <input type="text" id="location" value="<%= aboutInfo.location %>" class="py-2 px-4 border border-purple-400" />
+                </div>
+                <div class="mx-auto my-3">
+                    <label class="inline-block font-bold mr-2 w-24" for="mail">mail:</label>
+                    <input type="email" id="mail" value="<%= aboutInfo.mail %>" class="py-2 px-4 border border-purple-400" />
+                </div>
+
+                <div class="mx-auto my-3 flex flex-col items-end w-full">
+                    <button type="submit" class="py-2 px-3 bg-purple-400 mr-20">
+                        <i class="fas fa-save px-2"></i>
+                        save profile
+                    </button>
+                </div>
+                
+            </form>
             
-        </div>
-        <div>
-            <img src="" alt="" />profile_pic
-            <input type="text" name="full_name" id="" />
-            <input type="text" name="job" id="" />
-            <input type="text" name="dob" id="" />
-            <input type="text" name="bio" id="" />
-            <input type="text" name="location" id="" />
-            <input type="email" name="mail" id="" />
-            <input type="submit" value="save profile"/>
         </div>
     </div>
 </div>

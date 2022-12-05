@@ -10,6 +10,9 @@ let http = require('http');
 const config = require("../server/config")[process.env.NODE_ENV || "development"]
 const app = require('../server/app')(config)
 const database = require('../server/lib/db')
+const Grid = require("gridfs-stream")
+const Mon = require("mongoose")
+Grid.mongo = mongoose.mongo
 /**
  * Get port from environment and store in Express.
  */
@@ -23,12 +26,18 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-database.connect(config.db.url).then( () => {
+const db_connection = database.connect(config.db.url).then( () => {
   server.listen(port)
   console.log(`database is live on ${process.env.NODE_ENV} environment`)
 }).catch( (err) => {
   console.log(err)
 })
+
+db_connection.once("open", ()=>{
+  const gfs = Grid(db_connection.db)
+})
+
+
 // server.listen(port)
 
 /**

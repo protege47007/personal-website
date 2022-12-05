@@ -1,0 +1,34 @@
+<%- include('./partials/header') -%>
+<script src="/scripts/dashboard-nav.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+<div class="grid grid-cols-12">
+    
+    <%- include('./partials/nav') -%> 
+    <div class="col-span-10 px-4">
+        <h1 class="text-4xl col-span-9 mb-4">Dashboard -resume/skills</h1>
+        <%- include('./partials/cv-nav') -%>
+        <ul class="grid grid-cols-3 my-2 md:grid-cols-4">
+            <% skills?.forEach((skill) => { %>
+                <li class="flex flex-col justify-center my-2 h-24">
+                    <img src="<%= skill.imageUrl %>"  alt="<%= skill.imageAlt %>" class=" w-14 h-14 mx-auto" />
+                    <span class="text-sm text-center font-bold text-white"><%= skill.title %></span>
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-trash-alt"></i>
+                </li>
+            <% }) %>
+        </ul>
+        <div>
+            <h3>preview</h3>
+            <img src="/images/placeholder.jpg" alt="" id="preview" />
+            <form action="/dashboard/resume/skills" method="post" enctype="multipart/form-data">
+                <input type="file" name="skill_image" accept="image/*"/>
+                <input type="text" id="preview_title" />
+                <button type="submit">add</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') -%> 

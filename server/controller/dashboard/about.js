@@ -1,9 +1,13 @@
 const createError = require("http-errors")
+const About_Model = require("../../models/about")
 
 module.exports = function (req, res, next){
     try {
-        console.log(req.admin)
-        res.send("im here")
+        let full_name
+        if(req.file.file_name){
+            // full_name = req.
+        }
+        
     } catch (error) {
         return next(createError(500, {body: error, message: "internal server error"}))
     }

@@ -7,6 +7,7 @@ const portfolio_controller = require("../../controller/dashboard/portfolio")
 const About_Model = require("../../models/about")
 const Portfolio_Model = require("../../models/portfolio")
 const findAll = require("../../utilities/findAll")
+const multer = require("../../services/GFS")
 
 
 // aboutServices is coming from params obj passed to the routes 
@@ -34,7 +35,7 @@ module.exports = () => {
         
     })
 
-    router.post("/", about_controller)
+    router.post("/", multer, about_controller)
 
     //resume dashboard route
     router.use("/resume", resume_router())

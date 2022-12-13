@@ -1,13 +1,24 @@
 const express = require("express")
 const router = express.Router()
 const createError = require("http-errors")
+
+//controllers
 const about_controller = require("../../controller/dashboard/about")
-const resume_router = require("./resume")
 const portfolio_controller = require("../../controller/dashboard/portfolio")
+
+//router function
+const resume_router = require("./resume")
+
+//models
 const About_Model = require("../../models/about")
 const Portfolio_Model = require("../../models/portfolio")
+
+//utility functions and services
 const findAll = require("../../utilities/findAll")
-const multer = require("../../services/GFS")
+const { upload } = require("../../services/GFS")
+
+//middlewares
+const profile_constraints = require("../../middlewares/profile_constraints")
 
 
 // aboutServices is coming from params obj passed to the routes 
@@ -16,16 +27,18 @@ module.exports = () => {
 
     router.get("/", async (req, res, next) => {
         try {
-            
+            const error ={}
+            if(req.cookies.state){
+                error["body"] = req.cookies.state
+            }
+
             const result = await findAll(About_Model)
-            const { full_name, mail, job, dob, location, bio } = result[0]
-            const aboutInfo = { full_name, mail, job, dob, location, bio }
-            
-            const profile_pic = ""
+            const { full_name, mail, job, dob, location, bio, profile_pic } = result[0]
+            const aboutInfo = { full_name, mail, job, dob, location, bio, profile_pic }
 
             res.render('dashboard/profile', { 
                 aboutInfo,
-                profile_pic: false
+                error
              })
 
         } catch (error) {
@@ -35,7 +48,7 @@ module.exports = () => {
         
     })
 
-    router.post("/", multer, about_controller)
+    router.post("/", upload, profile_constraints, about_controller)
 
     //resume dashboard route
     router.use("/resume", resume_router())

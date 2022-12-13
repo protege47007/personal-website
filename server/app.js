@@ -72,8 +72,10 @@ module.exports = (config) => {
   
   // error handler
   app.use( async (err, req, res, next) => {
-    console.log(err)
-    res.locals.message = err.message // global error message
+    const { body, ...rest } = err
+    console.log("*****************************Error Body**********************************: \n", err,
+    "\n****************Error Message*****************: \n", rest)
+    res.locals.message = rest // global error message
     const status = err.status || 500
     res.locals.status = status // global error status
     // await logservice.saveLogData({name: "error_report", date: new Date(), body: err})

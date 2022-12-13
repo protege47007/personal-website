@@ -15,7 +15,7 @@
             <form action="/dashboard/" method="POST" enctype="multipart/form-data" class="text-xs border-2 border-purple-400 p-4 relative">
                 <div class="mx-auto my-3 absolute right-4 px-4">
                     <label class="inline-block font-bold mr-2 w-24" for="profile_pic">profile pic:</label>
-                    <img src="<%= !profile_pic? "/images/placeholder.jpg" : profile_pic %> " alt="" id="profile_pic" class="w-56 h-60"/>
+                    <img src="<%= !aboutInfo.profile_pic? "/images/placeholder.jpg" : "/image/"+aboutInfo.profile_pic %> " alt="" id="profile_pic" class="w-56 h-60"/>
                     <label for="img" class="block font-bold py-2 mt-1">Select image:</label>
                     <input type="file" id="img" name="file" accept="image/*" class="border border-purple-400 outline-purple-500 bg-white py-2 px-3 " />
                     <input type="text" name="file_name" value="profile_pic" class="block invisible"/>

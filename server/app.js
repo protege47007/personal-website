@@ -1,31 +1,18 @@
 const express = require("express")
 const path = require("path")
-const createError = require("http-errors")//
-// const cookieSession = require("cookie-session")// uninstall
 const cookieParser = require("cookie-parser")
-// const session = require("express-session")//
-const logger = require("morgan")//
+const logger = require("morgan")
 const _ = require('lodash')
 const ejs = require('ejs')
 const routes = require("./routes")
 const cors = require("cors")
-
-// const MongoStore = require("connect-mongo")(session);
-// const mongoose = require("mongoose")
-// const auth = require("./lib/auth")
-
+const method_override = require("method-override")
 
 //services
 const AboutService = require("./services/aboutService")
 const PortfolioService = require("./services/portfolioService")
 const AuthService = require("./services/auth")
 const LogService = require("./services/logService")
-
-
-// require('dotenv').config()
-// const mailjet = require ('node-mailjet').connect(`${process.env.JET_ONE}`, `${process.env.JET_TWO}`)
-
-
 
 
 module.exports = (config) => {
@@ -36,6 +23,7 @@ module.exports = (config) => {
 
   
   app.use(cors())
+  app.use(method_override("_method"))
   app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-with,Content-Type,Accept,Authorization");

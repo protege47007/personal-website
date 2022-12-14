@@ -2,7 +2,6 @@ const mongoose = require("mongoose")
 const Grid = require("gridfs-stream")
 Grid.mongo = mongoose.mongo
 const createError = require("http-errors")
-const { promiseImpl } = require("ejs")
 // const { GridFsBucket } = require("multer-gridfs-storage")
 
 

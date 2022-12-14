@@ -9,24 +9,61 @@ const int_model = require("../../../models/resume/interests")
 //utility function
 async function save_new(req, res, path, model_name){
     try{
+        
         const errors = validationResult(req)
-        if(!errors.isEmpty() || !req.file){
-            const data = await JSON.stringify({body: errors.array(), message: "Error: file not found or error while uploading"})
+        if(!errors.isEmpty() ){
+            const data = await JSON.stringify({body: errors.array(), message: "Error: input error"})
             res.cookie("state", data, { maxAge: 3e4 })
-                
+                    
             return res.status(403).redirect(`/dashboard${path}`)
         }
 
-        const new_file = model_name({
-            imageUrl: req.file.filename,
-            imageAlt: req.body.image_alt,
-            title: req.body.skill_name 
-        })
-            
-        const result = await new_file.save()
+        if(req.method === "POST"){
+            if( !req.file){
+                const data = await JSON.stringify({ message: "Error: file not found or unsuccessfully uploaded"})
+                res.cookie("state", data, { maxAge: 3e4 })
+                    
+                return res.status(403).redirect(`/dashboard${path}`)
+            } 
 
-        if(result){
-            res.redirect(`/dashboard${path}`)
+            const new_file = model_name({
+                imageUrl: req.file.filename,
+                imageAlt: `${req.body.skill_name}'s icon`,
+                title: req.body.skill_name 
+            })
+                
+            const result = await new_file.save()
+
+            if(result){
+                res.redirect(`/dashboard${path}`)
+            }
+        }
+
+        if(req.method.toString() === "PATCH"){
+            const update = {
+                imageAlt: `${req.body.skill_name}'s icon`,
+                title: req.body.skill_name 
+            }
+
+            if(req.file){
+                update["imageUrl"] = req.file.filename
+            }
+
+            const result = await model_name.findOneAndUpdate( { imageUrl: req.body.old_filename }, update, { new: true })
+            
+            
+            if(result){
+                res.redirect(`/dashboard${path}`)
+            }
+        }
+
+        if(req.method === "DELETE"){
+            const filter = req.body.old_filename
+            const result = await model_name.deleteOne( {imageUrl: filter})
+            if( result){
+                res.redirect(`/dashboard${path}`)
+            }
+
         }
 
     }catch(error){

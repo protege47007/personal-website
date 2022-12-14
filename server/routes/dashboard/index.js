@@ -30,6 +30,7 @@ module.exports = () => {
             const error ={}
             if(req.cookies.state){
                 error["body"] = req.cookies.state
+                res.cookie("state", "", { maxAge: 3e1 })
             }
 
             const result = await findAll(About_Model)

@@ -53,7 +53,25 @@ async function image_controller(req, res, next){
                 })
             
             })
-        // })
+        
+        
+    } catch (error) {
+        return next(createError(500, {body: error, message: "internal server error "}))
+    }
+}
+
+async function remove_image(filename){
+    try {
+        gfs.files.findOne({filename: filename}, async(err, file) => {
+            if(err) throw createError(500, {body: err, message: "internal server error: db"})
+
+            if(!file) throw createError(404, { message: "file not found" })
+
+            if(["image/png", "image/jpeg"].indexOf(file.contentType) === -1 ) throw createError(403, { message: "file is not an image"})
+            
+            // console.log("this is the file:", file)
+            await GFsB.delete(file._id)
+        })
         
     } catch (error) {
         return next(createError(500, {body: error, message: "internal server error "}))

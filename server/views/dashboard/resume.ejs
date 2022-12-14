@@ -1,51 +1,83 @@
 <%- include('./partials/header') -%>
 <script src="/scripts/dashboard-nav.js" defer></script>
+<script src="/scripts/resume.js" defer></script>
 </head>
 <body class="bg-gray-100">
 
 <div class="grid grid-cols-12">
-    
+   
     <%- include('./partials/nav') -%> 
+
+    <!-- main section -->
     <div class="col-span-10 px-4">
+        <!-- Header & Breadcrumb -->
         <h1 class="text-4xl col-span-9 mb-4">Dashboard -resume/skills</h1>
+         <!-- resume nav section -->
         <%- include('./partials/cv-nav') -%>
-        <div class="grid grid-cols-12">
+
+        
+        <div class="grid grid-cols-12 border border-purple-500 h-[32rem] mt-1 p-1">
+            <!-- skills Grid section -->
+            <!-- Error section: if !skills -->
             <% if ((typeof(skills) === "object" && Object.keys(skills).length === 0) || (Array.isArray(skills) && skills.length === 0)) { %>
                 <div class="col-span-8">
                     <h3 class="text-lg text-center mt-20">No skill was found </h3>
                 </div>
             <% } else { %>
-            <ul class="col-span-8 grid grid-cols-3 my-2 md:grid-cols-4">
-                <% skills && skills.forEach((skill) => { %>
-                    <li class="flex flex-col justify-center my-2 h-24">
-                        <img src="<%= skill.imageUrl %>"  alt="<%= skill.imageAlt %>" class=" w-14 h-14 mx-auto" />
-                        <span class="text-sm text-center font-bold text-white"><%= skill.title %></span>
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-trash-alt"></i>
-                    </li>
-                <% }) %>
-            </ul>
+                <!-- Skills section: skills? -->
+                <ul class="col-span-8 grid auto-cols-auto auto-rows-auto my-2 mx-1 md:grid-cols-4 h-[30rem] overflow-y-auto  ">
+                    <% skills && skills.forEach((skill) => { %>
+                        <li class="flex flex-col justify-center my-2 h-32 w-32  border border-purple-500 rounded p-1 hover:opacity-75 cursor-pointer" onclick="preview('<%= skill.imageUrl %>', '<%= skill.title %>')">
+                            <img src="/image/<%= skill.imageUrl %>"  alt="<%= skill.imageAlt %>" class=" w-16 h-16 mx-auto " />
+                            <span class="text-sm text-center font-bold "><%= skill.title %></span>
+                            
+                        </li>
+                    <% }) %>
+                </ul>
             <% } %>
+
+            <!-- Preview Pane -->
             <div class="col-span-4 border border-purple-500 py-1 px-2 mt-1">
+                
                 <div class="border border-purple-500 px-2">
-                    <h3 class="py-1">preview</h3>
-                    <div class="flex flex-row ">
-                        <img src="/images/placeholder.jpg" alt="preview" id="preview" class="w-32 h-32 " />
-                        <div class=" ml-2 flex flex-col gap-4 items-center w-10 pt-1 text-purple-500">
-                            <% [ {fa_class: "fas fa-pen", }, {fa_class: "fas fa-trash-alt", }].map( action => { %> 
-                                <span class="border border-purple-500 p-2 rounded-sm w-9 flex items-center justify-center cursor-pointer hover:border-black hover:text-black"><i class="<%= action.fa_class+" scale-125" %> "></i></span>
-                            <% }) %> 
+                    <!-- Input Error Section -->
+                    <% if (Array.isArray(error.body) && Object.keys(error).length !== 0) { %>
+                        <div>
+                            <% error.body.map( item => { %>
+                                <p> <%= item.msg %> </p>
+                            <% }) %>
+                            <%= error.message %>   
                         </div>
-                    </div>
-                    <p class="py-1 text-base font-bold">preview title</p>
+                    <% } %>
+
+                    <!-- Preview section -->
+                    <h3 class="py-1">edit preview</h3>
+                    <form action="/dashboard/resume/skills" method="post" enctype="multipart/form-data">
+                        <!-- preview image tag -->
+                        <div class="flex flex-row ">
+                            <img src="/images/placeholder.jpg" alt="preview" id="preview_img" class="w-32 h-32 " />
+                            <div class=" ml-2 flex flex-col gap-4 items-center w-9/12 pt-1 text-purple-500 ">
+                                <!-- Form Action Buttons -->
+                                <% [ {fa_class: "fas fa-pen", title: "update skill", url: "/dashboard/resume/skills/?_method=PATCH"}, {fa_class: "fas fa-trash-alt", title: "delete skill", url: "/dashboard/resume/skills/?_method=DELETE"}].map( action => { %> 
+                                    <button formaction="<%= action.url %>" class="border border-purple-500 p-2 rounded-sm w-full flex items-center justify-center gap-4 cursor-pointer hover:border-black hover:text-black text-sm"><%= action.title %> <i class="<%= action.fa_class+" scale-125" %> "></i></button>
+                                <% }) %> 
+                            </div>
+                        </div>
+
+                        <!-- main form input section: PATCH & DELETE -->
+                        <label for="image" class="text-sm py-1 inline-block ">choose another image</label>
+                        <input type="file" name="file" id="image" />
+                        <input type="text" placeholder="preview title" name="skill_name" id="preview_text" class="py-1 px-2 text-base border border-purple-500 mt-1" required/>
+                        <input type="hidden" name="old_filename" value="" id="search_term"/>
+                    </form>
                 </div>
+
+                <!-- Add New SKills Section -->
                 <form action="/dashboard/resume/skills" method="post" enctype="multipart/form-data" class="border border-purple-500 mt-4 py-1 px-2">
                     <label for="select_image" class="inline-block pt-2 text-sm ">Add new skill*</label>
                     <input type="file" id="select_image" name="file" accept="image/*" class="w-full py-1 text-sm" required/>
                     <label for="preview_title" class="inline-block pt-2 text-sm ">skill name*</label>
-                    <input type="text" id="preview_title" name="skill_name" class="border border-purple-500" required/>
-                    <label for="alt">Image alt*</label>
-                    <input type="text" name="image_alt" id="alt" class="border border-purple-500" required>
+                    <input type="text" id="preview_title" name="skill_name" class="border border-purple-500 py-1 px-2" required/>
                     <button type="submit" class="block mt-2 py-2 px-3 bg-purple-500 text-sm">add</button>
                 </form>
             </div>

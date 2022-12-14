@@ -22,7 +22,8 @@ module.exports = async function (req, res, next){
             full_name: req.body.full_name,
             job: req.body.job,
             location: req.body.location,
-            bio: req.body.bio
+            bio: req.body.bio,
+            dob: req.body.dob
         }
 
         if(req.file){

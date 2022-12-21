@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "NODE_ENV=development nodemon ./bin/www",
-    "build:css": "postcss server/public/styles/stylesheets/tailwind.css -o server/public/styles/stylesheets/style.css --watch",
+    "watch:css": "postcss server/public/styles/stylesheets/tailwind.css -o server/public/styles/stylesheets/style.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David",

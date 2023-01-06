@@ -37,7 +37,7 @@ module.exports = () => {
         } 
     })
 
-    // router.post("/register", register)
+    router.post("/register", register)
 
     return router
 }

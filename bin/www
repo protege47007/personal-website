@@ -25,7 +25,7 @@ const server = http.createServer(app);
 
 database.connect(config.db.url).then( () => {
   server.listen(port)
-  console.log(`database is live on ${process.env.NODE_ENV} environment`)
+  console.log(`database is live on ${process.env.NODE_ENV || "development"} environment`)
 }).catch( (err) => {
   console.log(err)
 })

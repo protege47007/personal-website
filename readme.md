@@ -4,4 +4,4 @@
 
 - npm run build:css
 
-- npm start
+- npm run dev

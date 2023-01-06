@@ -1,4 +1,4 @@
-const config = require("../config")[process.env.NODE_ENV]
+const config = require("../config")[process.env.NODE_ENV || "development"]
 const util = require("util")
 const mongoose = require("mongoose")
 const multer = require("multer")

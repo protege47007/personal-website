@@ -1,5 +1,6 @@
 <%- include('../partials/header') -%>
 <script src="/scripts/dashboard-nav.js" defer></script>
+<script src="/scripts/dashboard-xp.js" defer></script>
 </head>
 <body class="bg-gray-100">
 
@@ -9,6 +10,52 @@
     <div class="col-span-10 px-4">
         <h1 class="text-4xl col-span-9 mb-4">Dashboard -resume/work xperiences</h1>
         <%- include('../partials/cv-nav') -%>
+
+        <div class="grid grid-cols-12 border border-purple-500 h-[35rem] mt-1 p-2">
+            <div class="border border-purple-500 col-span-8 p-2 mr-1 overflow-y-auto">
+                <div class="border border-purple-500" onclick="preview()">
+                    <h3 class="border border-black text-xl font-bold">Position Held <span class="opacity-50">@Company's name</span></h3>
+                <p class="border border-black font-bold">date: </p>
+                <div class="border border-black">
+                    <p class="border border-black font-bold">responsibilities: </p>
+                    <ul class="border border-black list-disc pl-5">
+                        <li class="border border-black">Lorem ipsum dolor sit amet.</li>
+                        <li class="border border-black">Lorem ipsum dolor sit amet.</li>
+                        <li class="border border-black">Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+            <div class="border border-black col-span-4 p-2">
+                <form method="post" class="border border-black p-1" >
+                    <div class="mb-4" id="edit_pane">
+                        <label for="position">position</label>
+                        <input type="text" name="position" id="position" class="border border-black py-1 px-2 block w-10/12">
+
+                        <label for="company">Company</label>
+                        <input type="text" name="company" id="company" class="border border-black py-1 px-2 block w-10/12">
+
+                        <label for="start_date">start date</label>
+                        <input type="text" name="start_date" id="start_date" class="border border-black py-1 px-2 block w-10/12">
+
+                        <label for="end_date">end date</label>
+                        <input type="text" name="end_date" id="end_date" class="border border-black py-1 px-2 block w-10/12" placeholder="leave as present, if till present">
+
+                        <label for="resp">responsibilities</label>
+                        <input type="text" name="resp" id="resp" placeholder="hit enter when done" class="border border-black py-1 px-2 block w-10/12">
+                    </div>
+                    
+                    <!-- form buttons -->
+                    <% [ {title: "Add new XP", func: "add", fa_class: "fas fa-save"}, {fa_class: "fas fa-pen", title: "Update XP", func: "update"}, {fa_class: "fas fa-trash-alt", title: "Delete XP", func: "delete"}].map( action => { %> 
+                    <button onclick="clicked('<%= action.func %>')" class="border border-purple-500 py-1 px-2 hover:text-purple-500 text-sm">
+                        <i class="<%= action.fa_class %>" ></i> 
+                        <%= action.title %> 
+                    </button>
+                    <% }) %> 
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

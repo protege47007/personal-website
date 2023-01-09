@@ -6,11 +6,17 @@ const { session } = require("../config")[process.env.NODE_ENV || "development"]
 module.exports = async (req, res, next) => {
     try{
         
-        if( !req.signedCookies["cart"]) return next (createError(403, "Please supply an authorization header"))
+        if( !req.signedCookies["cart"]) {
+            res.cookie("state", "auth-404")
+            res.status(403).redirect("/adminxyz/login")
+        }
 
         const enc_token = req.signedCookies["cart"]
 
-        if (!enc_token || typeof enc_token == "undefined") return next(createError(401, "No authorization token supplied"))
+        if (!enc_token || typeof enc_token == "undefined") {
+            res.cookie("state", "auth-404")
+            res.status(403).redirect("/adminxyz/login")
+        }
         
             
         jwt.verify(enc_token, session.key, (err, dec_token) => {
@@ -20,7 +26,10 @@ module.exports = async (req, res, next) => {
                 res.status(403).redirect("/adminxyz/login")
             }
                 
-            if (!dec_token) return next(createError(401, "Missing required authentication"))
+            if (!dec_token) {
+                res.cookie("state", "auth-404")
+                res.status(403).redirect("/adminxyz/login")
+            }
             
             //renew token logic needed
             if(dec_token.account_type!=='Admin') return next(createError(401, "You do not have the required credential to perform this operation"))

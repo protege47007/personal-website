@@ -39,7 +39,7 @@ async function save_new(req, res, path, model_name){
             }
         }
 
-        if(req.method.toString() === "PATCH"){
+        if(req.method === "PATCH"){
             const update = {
                 imageAlt: `${req.body.skill_name}'s icon`,
                 title: req.body.skill_name 

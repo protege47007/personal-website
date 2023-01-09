@@ -9,15 +9,16 @@ const About_Model = require("../../models/about")
 
 
 module.exports = async function (req, res, next){
+    console.log("got here")
     try {
         const errors = validationResult(req)
         if(!errors.isEmpty()){
-            const data = await JSON.stringify({body: errors.array(), message: "Forbidden: Invalid Credentials"})
+            const data = await JSON.stringify({body: errors.array(), message: "Error: invalid inputs"})
             res.cookie("state", data, { maxAge: 3e4 })
-            
+            console.log("got here: error ", errors.array())
             return res.status(403).redirect("/dashboard/")
         }
-
+        console.log("got here: no errors")
         const update = {
             full_name: req.body.full_name,
             job: req.body.job,
@@ -25,9 +26,9 @@ module.exports = async function (req, res, next){
             bio: req.body.bio,
             dob: req.body.dob
         }
-
+        console.log("file metadata: ", req.file, "\n body: ", req.body)
         if(req.file){
-            
+            console.log("profile pic: ", req.file.filename)
             update["profile_pic"] = req.file.filename
         }
         

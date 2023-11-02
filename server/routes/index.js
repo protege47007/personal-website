@@ -1,5 +1,7 @@
 const express = require("express")
 const router = express.Router()
+// const google = require("../../google4a04a9881bbe7856.html")
+const path = require('path')
 
 //error handler
 const createError = require("http-errors")
@@ -19,7 +21,7 @@ const {image_controller} = require("../services/GFS")
 const logged_in = require("../middlewares/logged_in")
 
 //Services from app.js  
-module.exports = ({aboutService, portfolioService, logService}) => {
+module.exports = ({aboutService, portfolioService, logService, dirname}) => {
     
 
     router.get("/", async (req, res, next) => {
@@ -46,8 +48,16 @@ module.exports = ({aboutService, portfolioService, logService}) => {
         console.log("fish test")
         return next()
     },
+
     function(req, res, next){
         res.status(200).json({body: "fish data", message: "success"})
+    })
+
+    router.get("/:google", (req, res, next) => {
+        if(req.params.google === "google4a04a9881bbe7856.html"){
+            res.status(200).sendFile(path.join(__dirname, "public", "/public/google4a04a9881bbe7856.html"))
+        }
+        next();
     })
 
     

@@ -564,12 +564,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 0.5rem;
 }
 
-.mt-12 {
-  margin-top: 3rem;
-}
-
 .mr-1 {
   margin-right: 0.25rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
 }
 
 .block {
@@ -644,16 +644,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 16rem;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
-.h-\[34rem\] {
-  height: 34rem;
-}
-
 .h-\[35rem\] {
   height: 35rem;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .min-h-\[14rem\] {
@@ -824,10 +820,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   overflow-y: auto;
 }
 
-.overflow-y-hidden {
-  overflow-y: hidden;
-}
-
 .rounded-sm {
   border-radius: 0.125rem;
 }
@@ -935,6 +927,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-no-repeat {
   background-repeat: no-repeat;
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .p-2 {
@@ -1375,32 +1372,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 3rem;
   }
 
-  .lg\:h-screen {
-    height: 100vh;
-  }
-
-  .lg\:h-\[36\.25rem\] {
-    height: 36.25rem;
-  }
-
-  .lg\:h-72 {
-    height: 18rem;
-  }
-
-  .lg\:h-\[35rem\] {
-    height: 35rem;
-  }
-
-  .lg\:h-\[36rem\] {
-    height: 36rem;
-  }
-
   .lg\:h-\[40rem\] {
     height: 40rem;
   }
 
-  .lg\:h-\[32rem\] {
-    height: 32rem;
+  .lg\:h-72 {
+    height: 18rem;
   }
 
   .lg\:w-full {
@@ -1560,11 +1537,30 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @media (min-width: 1280px) {
 
-  .xl\:h-\[28\.5rem\] {
-    height: 28.5rem;
+  .xl\:h-\[30rem\] {
+    height: 30rem;
   }
 
   .xl\:h-\[32rem\] {
     height: 32rem;
+  }
+
+  .xl\:h-\[50rem\] {
+    height: 50rem;
+  }
+
+  .xl\:h-96 {
+    height: 24rem;
+  }
+}
+
+@media (min-width: 1536px) {
+
+  .\32xl\:h-\[80dvh\] {
+    height: 80dvh;
+  }
+
+  .\32xl\:h-screen {
+    height: 100vh;
   }
 }

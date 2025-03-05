@@ -8,12 +8,12 @@ async function send_contact_mail(name, mail, subject, message){
         "Messages":[
             {
                 "From": {
-                    "Email": "akdadewumi@gmail.com",
+                    "Email": "lakerzhitman@gmail.com",
                     "Name": "David"
                 },
                 "To": [
                     {
-                        "Email": "lakerzhitman@gmail.com",
+                        "Email": "akdadewumi@gmail.com",
                         "Name": ""
                     }
                 ],

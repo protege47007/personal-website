@@ -1,12 +1,12 @@
 <%- include('./partials/header') -%>
 <%- include('./partials/nav') -%>
 
-<div class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-0 lg:px-2 xl:h-[32rem]">
+<div class="lg:h-[28rem]  lg:overflow-y-scroll lg:scroll-smooth lg:border lg:border-dotted lg:border-r-0 lg:px-2 xl:h-[32rem] 2xl:h-[80dvh]">
     <section class="md:grid md:grid-cols-2 md:grid-rows-2 md:gap-1 lg:gap-4">
         <% projects.forEach( item => { %>
-            <a href="<%= item.url %> ">
+            <a href="<%= item.url %> " target="_blank">
                 <div class="slot bg-white mt-4 hover:opacity-80 cursor-pointer">
-                    <img src="<%= item.imageUrl %>" alt="<%= item.imageAlt %>" class="pics min-h-[14rem] md:w-full md:h-64 mx-auto my-auto" />
+                    <img src="<%= item.imageUrl %>" alt="<%= item.imageAlt %>" class="pics min-h-[14rem] md:w-full md:h-64 mx-auto my-auto object-contain" />
                     <div class="info text-black p-1 md:min-h-min">
                         <h4 class="text-lg font-bold border border-dotted border-t-0 border-l-0 border-r-0 border-black"><%= item.name %></h4>
                         <p class="text-sm"><%= item.desc %></p>

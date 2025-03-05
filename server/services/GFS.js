@@ -78,4 +78,4 @@ async function remove_image(filename){
     }
 }
 
-module.exports = { upload, image_controller}
+module.exports = { upload, image_controller, remove_image}

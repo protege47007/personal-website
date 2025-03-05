@@ -5,7 +5,7 @@ const Admin = require("../../models/about")
 
 module.exports = async (req, res, next) => {
     try{
-
+        console.log("fired")
         const newAdmin = Admin({
             full_name: "Adewumi David",
             mail: process.env.MAIL,
@@ -18,6 +18,7 @@ module.exports = async (req, res, next) => {
 
         const savedAdmin = await newAdmin.save()
         if(savedAdmin){
+            console.log("fired: ", savedAdmin)
             const { full_name, dob, location, job, bio } = savedAdmin
             (res.status(200).json({body: {full_name, dob, location, job, bio}, message: "Admin created successfully"}))
         }

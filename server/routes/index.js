@@ -21,7 +21,7 @@ const {image_controller} = require("../services/GFS")
 const logged_in = require("../middlewares/logged_in")
 
 //Services from app.js  
-module.exports = ({aboutService, portfolioService, logService, dirname}) => {
+module.exports = ({aboutService, portfolioService, logService}) => {
     
 
     router.get("/", async (req, res, next) => {
@@ -55,7 +55,7 @@ module.exports = ({aboutService, portfolioService, logService, dirname}) => {
 
     router.get("/:google", (req, res, next) => {
         if(req.params.google === "google4a04a9881bbe7856.html"){
-            res.status(200).sendFile(path.join(__dirname, "public", "/public/google4a04a9881bbe7856.html"))
+            res.status(200).sendFile(path.join(__dirname, "../public", "/public/google4a04a9881bbe7856.html"))
         }
         next();
     })
